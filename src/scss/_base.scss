@@ -1,23 +1,24 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Onest', system-ui, sans-serif;
+  background: $bg;
+  color: $ink;
+  font-family: $font-main;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 * { box-sizing: border-box; }
 
-a { color: inherit; text-decoration: none; transition: color .25s; }
+a { color: inherit; text-decoration: none; transition: color $t-fast; }
 
 // :where() робить це правило найслабшим, тож кнопки-посилання зі своїм кольором
 // не жовтіють при наведенні (як у дизайні).
-:where(a:hover) { color: var(--yellow); }
+:where(a:hover) { color: $yellow; }
 
 input, textarea, button { font-family: inherit; }
 
@@ -26,12 +27,12 @@ input, textarea, button { font-family: inherit; }
 // ---------- Загальні блоки ----------
 .container {
   @include wrap;
-  padding: var(--pad-section) var(--pad-x);
+  padding: $pad-section $pad-x;
 }
 
 .h2 {
   margin: 0;
-  font-size: clamp(32px, 4.4vw, 56px);
+  font-size: $fs-h2;
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -39,20 +40,20 @@ input, textarea, button { font-family: inherit; }
   &--spaced { margin-bottom: 48px; }
 }
 
-.accent { color: var(--yellow); }
+.accent { color: $yellow; }
 
-.square { width: 8px; height: 8px; background: var(--yellow); display: block; flex: none; }
+.square { width: 8px; height: 8px; background: $yellow; display: block; flex: none; }
 
 .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
 // Підписи-заглушки моноширинним шрифтом («Фото роботи» тощо)
 .tag {
-  font-family: var(--mono);
-  font-size: 13px;
+  font-family: $font-mono;
+  font-size: $fs-xs;
   padding: 5px 9px;
-  border-radius: 6px;
+  border-radius: $radius-tag;
 
-  &--dark { color: #cfd4dd; background: var(--bg); }
+  &--dark { color: $tag-text; background: $bg; }
   &--bl { position: absolute; left: 16px; bottom: 16px; }
   &--br { position: absolute; right: 16px; bottom: 16px; }
 }
@@ -63,25 +64,25 @@ input, textarea, button { font-family: inherit; }
 .pill {
   min-height: 44px;
   padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 15px;
+  border-radius: $radius-pill;
+  font-size: $fs-base;
   font-weight: 500;
   cursor: pointer;
-  border: 1.5px solid #e1ddd6;
-  background: #fff;
-  color: var(--ink);
+  border: 1.5px solid $border-input;
+  background: $white;
+  color: $ink;
   @include smooth;
 
-  &--square { padding: 10px 16px; border-radius: 12px; }
+  &--square { padding: 10px 16px; border-radius: $radius-input; }
 
-  &.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  &.is-active { background: $ink; color: $white; border-color: $ink; }
 
   &:not(.is-active) {
     @include hover {
-      border-color: var(--blue);
-      color: var(--blue);
+      border-color: $blue;
+      color: $blue;
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(63, 99, 201, 0.15);
+      box-shadow: 0 6px 16px rgba($blue, 0.15);
     }
   }
 }

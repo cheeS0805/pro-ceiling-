@@ -1,6 +1,6 @@
 // PRO CEILING — інтерактив лендингу.
 // Це джерело на TypeScript. Браузер отримує скомпільований script.js:
-// після змін запусти `npm run build` (або `npm run watch`).
+// після змін запусти `npm run build` (або тримай відкритим `npm run watch:ts`).
 
 // ---------- Типи ----------
 type CeilingTypeId = 'mat' | 'gloss' | 'satin' | 'two' | 'print' | 'led' | 'float';

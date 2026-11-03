@@ -1,9 +1,7 @@
 // Міксини — шматки CSS, які можна «вставити» в будь-який селектор через @include.
+@use 'tokens' as *;
 
-// Поріг мобільної версії, як у дизайні Claude Design
-$mobile-max: 899.98px;
-$desktop-min: 900px;
-
+// Поріг мобільної версії ($mobile-max / $desktop-min) — у _tokens.scss
 @mixin mobile {
   @media (max-width: $mobile-max) { @content; }
 }
@@ -23,13 +21,13 @@ $desktop-min: 900px;
 
 // Плавність для hover-ефектів
 @mixin smooth {
-  transition: transform .25s, box-shadow .25s, background .25s, color .25s, border-color .25s, padding .25s;
+  transition: transform $t-fast, box-shadow $t-fast, background $t-fast, color $t-fast, border-color $t-fast, padding $t-fast;
 }
 
 // Кнопка-«пігулка» з текстом по центру
 @mixin pill-button($pad-y, $pad-x, $size, $min-h) {
   padding: $pad-y $pad-x;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   font-size: $size;
   min-height: $min-h;
   display: flex;
@@ -37,8 +35,8 @@ $desktop-min: 900px;
   white-space: nowrap;
 }
 
-// Внутрішній контейнер: 1240px по центру
+// Внутрішній контейнер ($container) по центру
 @mixin wrap {
-  max-width: 1240px;
+  max-width: $container;
   margin: 0 auto;
 }

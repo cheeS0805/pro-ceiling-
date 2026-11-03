@@ -1,0 +1,129 @@
+// =============================================================================
+// Токени дизайну PRO CEILING — єдине місце, де задаються кольори, шрифти,
+// розміри, заокруглення, тіні й швидкості анімацій.
+//
+// Підключення в будь-якому файлі:  @use 'tokens' as *;
+// Прозорий варіант кольору:        rgba($blue, 0.5)
+// =============================================================================
+
+// ---------- Кольори бренду ----------
+$yellow: #f2d41c;
+$blue: #3f63c9;
+$blue-hover: #4b70dc;    // синій при наведенні
+$blue-light: #5b7fe6;    // синій квадрат логотипа, рамка фото
+$blue-link: #7d9bf0;     // посилання на темному фоні
+$blue-pale: #dfe5f7;     // текст на синьому фоні
+$blue-tint: #eaeefb;     // блідо-синій фон (номери послуг, FAQ при наведенні)
+$glow-blue: #7896ff;     // світіння ліній на головному екрані
+
+$white: #fff;
+$black: #000;
+
+// ---------- Темні фони ----------
+$bg: #0e1014;            // основний темний фон
+$bg-footer: #0a0b0e;
+$bg-request: #14171d;    // секція форми
+$ink: #15171c;           // «чорнило»: текст на світлому, темні картки
+$surface-dark: #161920;  // темні кнопки (бургер, ×)
+$surface-dark-hover: #1d212a;
+$overlay: rgba(8, 9, 12, 0.94); // фон лайтбокса
+
+// ---------- Світлі фони ----------
+$cream: #f5f3ef;         // секції «Послуги», «Як ми працюємо»
+$sand: #eceae5;          // секція калькулятора
+$stone: #f2f0ec;         // сірі кнопки (−, іконка FAQ)
+$input-bg: #f7f6f3;
+
+// ---------- Текст ----------
+$text-light: #eef0f4;    // основний текст на темному
+$muted: #5a5f69;         // другорядний текст на світлому
+$muted-dark: #b4bac6;    // другорядний текст на темному
+$nav-text: #a3a9b6;      // меню, підписи в підвалі
+$text-dim: #8a909c;      // дрібні примітки на темному
+$text-note: #6b707a;     // примітка під формою
+$tag-text: #cfd4dd;      // текст плашок-заглушок
+
+// ---------- Лінії й рамки ----------
+$line-light: #e4e0d9;    // рамки карток на світлому
+$line-faq: #ebe8e2;
+$line-dark: #22262e;     // розділювачі на темному (шапка, меню)
+$line-dark-2: #2c313b;   // рамки темних кнопок і карток
+$line-media: #262a33;    // рамки фото в портфоліо
+$line-footer: #1e2129;
+$border-dark: #3a3f4a;   // контурні кнопки на темному
+$border-input: #e1ddd6;
+$border-input-hover: #c9c4bb;
+$border-reset: #d6d2cb;
+
+// ---------- Заглушки фото (смугастий фон) ----------
+$stripe-1: #1b1f27;
+$stripe-2: #20252e;
+$stripes: repeating-linear-gradient(135deg, $stripe-1 0 12px, $stripe-2 12px 24px);
+
+// ---------- Шрифти ----------
+$font-main: 'Onest', system-ui, sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
+
+// Розміри тексту
+$fs-xs: 13px;            // плашки, підписи-«кікери»
+$fs-sm: 14px;
+$fs-base: 15px;          // текст карток, кнопки-перемикачі
+$fs-md: 16px;
+$fs-lg: 17px;            // вступні абзаци, великі кнопки
+$fs-card-title: 21px;    // заголовки карток (h3)
+$fs-icon: 22px;          // символи + − ← → у кнопках
+$fs-subtitle: 24px;
+$fs-title-sm: 26px;
+$fs-title: 28px;
+
+// «Гумові» розміри: менші на телефоні, більші на комп'ютері
+$fs-h1: clamp(40px, 6.4vw, 84px);
+$fs-h2: clamp(32px, 4.4vw, 56px);
+$fs-h3-big: clamp(26px, 3vw, 36px);
+$fs-h3-cta: clamp(24px, 2.6vw, 32px);
+$fs-lead: clamp(17px, 1.6vw, 20px);
+$fs-total: clamp(40px, 5vw, 60px);
+
+// ---------- Відступи й сітка ----------
+$container: 1240px;
+$container-narrow: 920px; // FAQ
+$pad-x: clamp(16px, 4vw, 40px);         // поля зліва й справа
+$pad-section: clamp(56px, 8vw, 112px);  // відступ секції зверху й знизу
+$gap-cards: 16px;                        // між картками в сітках
+
+// ---------- Заокруглення ----------
+$radius-pill: 999px;     // кнопки-«пігулки»
+$radius-round: 50%;      // круглі кнопки
+$radius-tag: 6px;
+$radius-row: 10px;       // рядки таблиці цін
+$radius-input: 12px;
+$radius-icon-btn: 14px;  // квадратні кнопки (бургер, ×)
+$radius-thumb: 16px;     // фото робіт
+$radius-card: 18px;
+$radius-media: 20px;     // великі фото
+$radius-form: 22px;
+$radius-panel: 24px;     // великі панелі
+
+// ---------- Тіні ----------
+$shadow-yellow: 0 8px 24px rgba($yellow, 0.35);
+$shadow-float: 0 10px 30px rgba($black, 0.25);
+$shadow-float-strong: 0 10px 30px rgba($black, 0.35);
+$shadow-big: 0 30px 80px rgba($black, 0.4);
+
+// ---------- Швидкості анімацій ----------
+$t-quick: .2s;
+$t-fast: .25s;
+$t-medium: .3s;
+$t-slow: .35s;
+$t-very-slow: .6s;
+$ease-out-smooth: cubic-bezier(.2, .7, .2, 1);
+
+// ---------- Шари (z-index) ----------
+$z-header: 10;
+$z-call: 30;
+$z-menu: 40;
+$z-lightbox: 50;
+
+// ---------- Брейкпоінти ----------
+$mobile-max: 899.98px;
+$desktop-min: 900px;

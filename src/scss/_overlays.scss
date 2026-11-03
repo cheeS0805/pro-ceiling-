@@ -1,3 +1,4 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
 // Елементи «поверх» сторінки: кнопка дзвінка, мобільне меню, лайтбокс.
@@ -7,7 +8,7 @@
   position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 30;
+  z-index: $z-call;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -17,65 +18,65 @@
 .call-list { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
 
 .call-link {
-  background: #fff;
-  color: var(--ink);
+  background: $white;
+  color: $ink;
   @include pill-button(12px, 18px, 15px, 48px);
   font-weight: 600;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: $shadow-float;
   @include smooth;
-  @include hover { color: var(--ink); background: var(--yellow); }
+  @include hover { color: $ink; background: $yellow; }
 }
 
 .call-btn-wrap { position: relative; width: 64px; height: 64px; }
 
-.call-pulse { position: absolute; inset: 0; border-radius: 50%; background: var(--yellow); display: block; }
+.call-pulse { position: absolute; inset: 0; border-radius: $radius-round; background: $yellow; display: block; }
 
 .call-btn {
   position: relative;
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: $radius-round;
   border: 0;
-  background: var(--yellow);
-  color: var(--ink);
-  font-size: 13px;
+  background: $yellow;
+  color: $ink;
+  font-size: $fs-xs;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: $shadow-float-strong;
   @include smooth;
   @include hover { transform: scale(1.06); }
 }
 
 // Квадратна кнопка «×» (меню й лайтбокс)
 @mixin close-button {
-  border: 1px solid #2c313b;
-  background: #161920;
-  color: #fff;
+  border: 1px solid $line-dark-2;
+  background: $surface-dark;
+  color: $white;
   cursor: pointer;
   @include smooth;
-  @include hover { border-color: var(--yellow); color: var(--yellow); }
+  @include hover { border-color: $yellow; color: $yellow; }
 }
 
 // ---------- Мобільне меню ----------
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 40;
-  background: var(--bg);
-  color: #fff;
+  z-index: $z-menu;
+  background: $bg;
+  color: $white;
   display: flex;
   flex-direction: column;
   padding: 20px 20px 32px;
   overflow-y: auto;
 
   &__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-  &__label { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); }
+  &__label { font-size: $fs-xs; letter-spacing: 0.12em; text-transform: uppercase; color: $yellow; }
 
   &__close {
     width: 48px;
     height: 48px;
-    border-radius: 14px;
-    font-size: 24px;
+    border-radius: $radius-icon-btn;
+    font-size: $fs-subtitle;
     @include close-button;
   }
 
@@ -84,29 +85,29 @@
 
   &__cta {
     margin-top: 8px;
-    background: var(--yellow);
-    color: var(--ink);
+    background: $yellow;
+    color: $ink;
     padding: 16px;
-    border-radius: 999px;
+    border-radius: $radius-pill;
     font-weight: 600;
-    font-size: 17px;
+    font-size: $fs-lg;
     text-align: center;
     min-height: 56px;
     @include smooth;
-    @include hover { color: var(--ink); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+    @include hover { color: $ink; box-shadow: $shadow-yellow; }
   }
 }
 
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  font-size: 28px;
+  font-size: $fs-title;
   font-weight: 600;
   letter-spacing: -0.02em;
 
   a {
     padding: 14px 0;
-    border-bottom: 1px solid #22262e;
+    border-bottom: 1px solid $line-dark;
     @include smooth;
     @include hover { padding-left: 10px; }
   }
@@ -116,8 +117,8 @@
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 50;
-  background: rgba(8, 9, 12, 0.94);
+  z-index: $z-lightbox;
+  background: $overlay;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,22 +129,22 @@
     width: min(100%, 1100px);
     aspect-ratio: 4/3;
     max-height: 84vh;
-    border-radius: 18px;
+    border-radius: $radius-card;
     overflow: hidden;
-    border: 1px solid #2c313b;
-    background: repeating-linear-gradient(135deg, #1b1f27 0 14px, #20252e 14px 28px);
+    border: 1px solid $line-dark-2;
+    background: repeating-linear-gradient(135deg, $stripe-1 0 14px, $stripe-2 14px 28px); // ширші смуги
   }
 
   &__label {
     position: absolute;
     left: 20px;
     bottom: 20px;
-    font-family: var(--mono);
-    font-size: 14px;
-    color: #cfd4dd;
-    background: var(--bg);
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    color: $tag-text;
+    background: $bg;
     padding: 6px 10px;
-    border-radius: 6px;
+    border-radius: $radius-tag;
   }
 
   // Стрілки ← →
@@ -153,17 +154,17 @@
     margin-top: -26px;
     width: 52px;
     height: 52px;
-    border-radius: 50%;
+    border-radius: $radius-round;
     border: 0;
-    background: #fff;
-    color: var(--ink);
-    font-size: 22px;
+    background: $white;
+    color: $ink;
+    font-size: $fs-icon;
     cursor: pointer;
     @include smooth;
-    @include hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+    @include hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba($black, 0.4); }
 
     &--prev { left: 14px; }
-    &--next { right: 14px; background: var(--yellow); }
+    &--next { right: 14px; background: $yellow; }
   }
 
   &__close {
@@ -172,9 +173,9 @@
     right: 16px;
     width: 52px;
     height: 52px;
-    border-radius: 50%;
-    font-size: 26px;
+    border-radius: $radius-round;
+    font-size: $fs-title-sm;
     @include close-button;
-    border-color: #3a3f4a; // рамка трохи світліша, ніж у меню
+    border-color: $border-dark; // рамка трохи світліша, ніж у меню
   }
 }

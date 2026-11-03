@@ -1,31 +1,32 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
 // ---------- Калькулятор ----------
 .calc {
-  background: #eceae5;
+  background: $sand;
 
   .section-head { margin-bottom: 40px; }
 }
 
 .demo-badge {
-  font-family: var(--mono);
-  font-size: 13px;
-  background: var(--ink);
-  color: var(--yellow);
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  background: $ink;
+  color: $yellow;
   padding: 7px 12px;
-  border-radius: 6px;
+  border-radius: $radius-tag;
 }
 
 .calc-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
-  gap: 16px;
+  gap: $gap-cards;
 }
 
 // Ліва біла картка з налаштуваннями
 .calc-controls {
-  background: #fff;
-  border-radius: 24px;
+  background: $white;
+  border-radius: $radius-panel;
   padding: clamp(20px, 3vw, 36px);
   display: flex;
   flex-direction: column;
@@ -34,9 +35,9 @@
 
 .calc-field { display: flex; flex-direction: column; gap: 14px; }
 .calc-area-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.calc-label { font-size: 15px; color: var(--muted); }
-.calc-area-value { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; }
-.range { width: 100%; accent-color: var(--blue); height: 28px; cursor: pointer; }
+.calc-label { font-size: $fs-base; color: $muted; }
+.calc-area-value { font-size: $fs-title; font-weight: 600; letter-spacing: -0.02em; }
+.range { width: 100%; accent-color: $blue; height: 28px; cursor: pointer; }
 .calc-lights-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 
 // Кнопки − та +
@@ -44,26 +45,26 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f2f0ec;
-  border-radius: 999px;
+  background: $stone;
+  border-radius: $radius-pill;
   padding: 4px;
 
   &__btn {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
+    border-radius: $radius-round;
     border: 0;
-    background: #fff;
-    font-size: 22px;
+    background: $white;
+    font-size: $fs-icon;
     cursor: pointer;
-    color: var(--ink);
+    color: $ink;
     @include smooth;
-    @include hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(21, 23, 28, 0.15); }
+    @include hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba($ink, 0.15); }
 
     &--plus {
-      background: var(--blue);
-      color: #fff;
-      @include hover { background: var(--blue-hover); }
+      background: $blue;
+      color: $white;
+      @include hover { background: $blue-hover; }
     }
   }
 
@@ -72,9 +73,9 @@
 
 // Права темна картка з результатом
 .calc-result {
-  background: var(--ink);
-  color: #fff;
-  border-radius: 24px;
+  background: $ink;
+  color: $white;
+  border-radius: $radius-panel;
   padding: clamp(20px, 3vw, 36px);
   display: flex;
   flex-direction: column;
@@ -82,29 +83,29 @@
   justify-content: space-between;
 }
 
-.calc-lines { display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: var(--muted-dark); }
+.calc-lines { display: flex; flex-direction: column; gap: 14px; font-size: $fs-md; color: $muted-dark; }
 
 .calc-line {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid #2c313b;
+  border-bottom: 1px solid $line-dark-2;
   padding-bottom: 14px;
 
-  &__sum { color: #fff; }
+  &__sum { color: $white; }
 }
 
 .calc-total-box { display: flex; flex-direction: column; gap: 6px; }
-.calc-total-label { font-size: 14px; color: var(--muted-dark); }
-.calc-total { font-size: clamp(40px, 5vw, 60px); font-weight: 600; letter-spacing: -0.03em; color: var(--yellow); line-height: 1; }
-.calc-note { font-size: 14px; color: #8a909c; margin-top: 6px; }
+.calc-total-label { font-size: $fs-sm; color: $muted-dark; }
+.calc-total { font-size: $fs-total; font-weight: 600; letter-spacing: -0.03em; color: $yellow; line-height: 1; }
+.calc-note { font-size: $fs-sm; color: $text-dim; margin-top: 6px; }
 
 .btn-calc {
   align-self: flex-start;
-  background: var(--blue);
-  color: #fff;
+  background: $blue;
+  color: $white;
   @include pill-button(16px, 26px, 16px, 52px);
   font-weight: 500;
-  transition: transform .25s, box-shadow .25s;
-  @include hover { color: #fff; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(63, 99, 201, 0.5); }
+  transition: transform $t-fast, box-shadow $t-fast;
+  @include hover { color: $white; transform: translateY(-2px); box-shadow: 0 12px 30px rgba($blue, 0.5); }
 }

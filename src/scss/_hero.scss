@@ -1,16 +1,17 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
 // ---------- Головний екран ----------
 .hero {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(ellipse at 85% 0%, rgba(63, 99, 201, 0.38), transparent 55%), var(--bg);
-  color: var(--text-light);
+  background: radial-gradient(ellipse at 85% 0%, rgba($blue, 0.38), transparent 55%), $bg;
+  color: $text-light;
 
   &__inner {
     position: relative;
     @include wrap;
-    padding: clamp(48px, 8vw, 104px) var(--pad-x) clamp(56px, 8vw, 104px);
+    padding: clamp(48px, 8vw, 104px) $pad-x clamp(56px, 8vw, 104px);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
     gap: clamp(40px, 5vw, 72px);
@@ -21,19 +22,19 @@
 
   &__title {
     margin: 0;
-    font-size: clamp(40px, 6.4vw, 84px);
+    font-size: $fs-h1;
     line-height: 1.02;
     font-weight: 600;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    color: #fff;
+    color: $white;
   }
 
   &__lead {
     margin: 0;
-    font-size: clamp(17px, 1.6vw, 20px);
+    font-size: $fs-lead;
     line-height: 1.55;
-    color: var(--muted-dark);
+    color: $muted-dark;
     max-width: 30em;
     text-wrap: pretty;
   }
@@ -43,8 +44,8 @@
   &__frame {
     position: absolute;
     inset: 0 0 18px 18px;
-    border: 3px solid var(--yellow);
-    border-radius: 20px;
+    border: 3px solid $yellow;
+    border-radius: $radius-media;
   }
 
   &__photo {
@@ -52,13 +53,13 @@
     aspect-ratio: 4/5;
     max-height: 620px;
     width: 100%;
-    border-radius: 20px;
-    border: 3px solid var(--blue-light);
-    background: var(--stripes);
+    border-radius: $radius-media;
+    border: 3px solid $blue-light;
+    background: $stripes;
     display: flex;
     align-items: flex-end;
     padding: 20px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 80px rgba($black, 0.5);
 
     .tag { padding: 6px 10px; }
   }
@@ -73,19 +74,19 @@
   transform: rotate(-14deg);
   pointer-events: none;
 
-  &--1 { top: 18%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9) 45%, transparent); box-shadow: 0 0 22px rgba(120, 150, 255, 0.7); }
-  &--2 { top: 62%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7) 60%, transparent); box-shadow: 0 0 22px rgba(120, 150, 255, 0.6); }
-  &--3 { top: 96%; background: linear-gradient(90deg, transparent, rgba(242, 212, 28, 0.8) 30%, transparent); box-shadow: 0 0 22px rgba(242, 212, 28, 0.5); }
+  &--1 { top: 18%; background: linear-gradient(90deg, transparent, rgba($white, 0.9) 45%, transparent); box-shadow: 0 0 22px rgba($glow-blue, 0.7); }
+  &--2 { top: 62%; background: linear-gradient(90deg, transparent, rgba($white, 0.7) 60%, transparent); box-shadow: 0 0 22px rgba($glow-blue, 0.6); }
+  &--3 { top: 96%; background: linear-gradient(90deg, transparent, rgba($yellow, 0.8) 30%, transparent); box-shadow: 0 0 22px rgba($yellow, 0.5); }
 }
 
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: $fs-sm;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--yellow);
+  color: $yellow;
   font-weight: 500;
 }
 
@@ -95,26 +96,26 @@
   flex-shrink: 0;
 
   &--primary {
-    background: var(--blue);
-    color: #fff;
-    transition: transform .25s, box-shadow .25s, background .25s;
-    @include hover { color: #fff; background: var(--blue-hover); transform: translateY(-3px); box-shadow: 0 14px 34px rgba(63, 99, 201, 0.5); }
+    background: $blue;
+    color: $white;
+    transition: transform $t-fast, box-shadow $t-fast, background $t-fast;
+    @include hover { color: $white; background: $blue-hover; transform: translateY(-3px); box-shadow: 0 14px 34px rgba($blue, 0.5); }
   }
 
   &--outline {
-    border: 1px solid #3a3f4a;
-    color: var(--text-light);
-    transition: border-color .25s, color .25s;
-    @include hover { border-color: var(--yellow); color: var(--yellow); }
+    border: 1px solid $border-dark;
+    color: $text-light;
+    transition: border-color $t-fast, color $t-fast;
+    @include hover { border-color: $yellow; color: $yellow; }
   }
 }
 
 // ---------- Біжучий рядок ----------
 .marquee-band {
-  background: var(--yellow);
-  color: var(--ink);
+  background: $yellow;
+  color: $ink;
   overflow: hidden;
-  border-top: 1px solid var(--yellow);
+  border-top: 1px solid $yellow;
 }
 
 .marquee {
@@ -127,5 +128,5 @@
   letter-spacing: -0.01em;
   white-space: nowrap;
 
-  .sep { color: var(--blue); }
+  .sep { color: $blue; }
 }

@@ -1,7 +1,11 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
+// Імітація матового полотна (стартовий фон прев'ю; решту фактур задає script.ts)
+$texture-mat: linear-gradient(180deg, #f3f2ef, #e8e6e2);
+
 // ---------- Послуги ----------
-.services { background: var(--cream); }
+.services { background: $cream; }
 
 .section-head {
   display: flex;
@@ -12,37 +16,37 @@
   margin-bottom: 48px;
 }
 
-.section-sub { margin: 0; font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 28em; }
+.section-sub { margin: 0; font-size: $fs-lg; line-height: 1.55; color: $muted; max-width: 28em; }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-  gap: 16px;
+  gap: $gap-cards;
 }
 
 .service-card {
-  background: #fff;
-  border: 1px solid var(--line-light);
-  border-radius: 18px;
+  background: $white;
+  border: 1px solid $line-light;
+  border-radius: $radius-card;
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-height: 200px;
-  transition: transform .35s, box-shadow .35s, border-color .35s;
-  @include hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(63, 99, 201, 0.16); border-color: var(--blue); }
+  transition: transform $t-slow, box-shadow $t-slow, border-color $t-slow;
+  @include hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba($blue, 0.16); border-color: $blue; }
 
-  h3 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
-  p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+  h3 { margin: 0; font-size: $fs-card-title; font-weight: 600; letter-spacing: -0.01em; }
+  p { margin: 0; font-size: $fs-base; line-height: 1.5; color: $muted; }
 
   &__num {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: #eaeefb;
-    color: var(--blue);
-    font-family: var(--mono);
-    font-size: 13px;
+    border-radius: $radius-round;
+    background: $blue-tint;
+    color: $blue;
+    font-family: $font-mono;
+    font-size: $fs-xs;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,14 +54,14 @@
 
   // Остання, синя картка
   &--accent {
-    background: var(--blue);
-    color: #fff;
-    border-color: var(--blue);
-    transition: transform .35s, box-shadow .35s;
-    @include hover { box-shadow: 0 20px 44px rgba(63, 99, 201, 0.4); }
+    background: $blue;
+    color: $white;
+    border-color: $blue;
+    transition: transform $t-slow, box-shadow $t-slow;
+    @include hover { box-shadow: 0 20px 44px rgba($blue, 0.4); }
 
-    p { color: #dfe5f7; }
-    .service-card__num { background: var(--yellow); color: var(--ink); }
+    p { color: $blue-pale; }
+    .service-card__num { background: $yellow; color: $ink; }
   }
 }
 
@@ -68,35 +72,35 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 28px 48px;
   align-items: center;
-  background: #fff;
-  border: 1px solid var(--line-light);
-  border-radius: 24px;
+  background: $white;
+  border: 1px solid $line-light;
+  border-radius: $radius-panel;
   padding: clamp(20px, 3vw, 40px);
 
   &__copy { display: flex; flex-direction: column; gap: 18px; }
 
-  h3 { margin: 0; font-size: clamp(26px, 3vw, 36px); font-weight: 600; letter-spacing: -0.02em; }
+  h3 { margin: 0; font-size: $fs-h3-big; font-weight: 600; letter-spacing: -0.02em; }
 }
 
-.kicker { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; }
+.kicker { font-size: $fs-xs; letter-spacing: 0.12em; text-transform: uppercase; color: $blue; font-weight: 500; }
 
-.texture-desc { margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted); min-height: 4.8em; }
+.texture-desc { margin: 0; font-size: $fs-md; line-height: 1.6; color: $muted; min-height: 4.8em; }
 
 .texture-preview {
   position: relative;
   aspect-ratio: 16/10;
-  border-radius: 18px;
+  border-radius: $radius-card;
   overflow: hidden;
-  border: 1px solid var(--line-light);
-  background: linear-gradient(180deg, #f3f2ef, #e8e6e2);
-  transition: background .6s;
+  border: 1px solid $line-light;
+  background: $texture-mat;
+  transition: background $t-very-slow;
 
-  .tag { color: var(--muted); background: rgba(255, 255, 255, 0.85); }
+  .tag { color: $muted; background: rgba($white, 0.85); }
 }
 
 .texture-shine {
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0) 48%, transparent 62%);
-  transition: opacity .6s;
+  background: linear-gradient(115deg, transparent 30%, rgba($white, 0) 48%, transparent 62%);
+  transition: opacity $t-very-slow;
 }

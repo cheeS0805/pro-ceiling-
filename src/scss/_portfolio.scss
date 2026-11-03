@@ -1,11 +1,16 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
+
+// Локальні кольори портфоліо
+$stripes-before: repeating-linear-gradient(135deg, #353a44 0 12px, #3c414c 12px 24px); // заглушка фото «до» (світліша)
+$cta-gradient: linear-gradient(120deg, #161a22, #1b2236);
 
 // ---------- Портфоліо ----------
 .portfolio {
-  background: var(--bg);
-  color: var(--text-light);
+  background: $bg;
+  color: $text-light;
 
-  .h2 { color: #fff; }
+  .h2 { color: $white; }
 }
 
 // До / після
@@ -15,23 +20,23 @@
   min-height: 260px;
   // Щоб min-height + aspect-ratio не розтягували блок ширше за екран телефона
   max-width: 100%;
-  border-radius: 20px;
+  border-radius: $radius-media;
   overflow: hidden;
-  border: 1px solid #262a33;
+  border: 1px solid $line-media;
   margin-bottom: 16px;
   user-select: none;
 
-  &__after { position: absolute; inset: 0; background: var(--stripes); }
+  &__after { position: absolute; inset: 0; background: $stripes; }
 
   &__before {
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(135deg, #353a44 0 12px, #3c414c 12px 24px);
+    background: $stripes-before;
     clip-path: inset(0 50% 0 0);
   }
 
-  &__tag-after { color: var(--ink); background: var(--yellow); }
-  &__tag-before { color: var(--text-light); background: var(--bg); }
+  &__tag-after { color: $ink; background: $yellow; }
+  &__tag-before { color: $text-light; background: $bg; }
 
   &__line {
     position: absolute;
@@ -40,7 +45,7 @@
     left: 50%;
     width: 3px;
     margin-left: -1.5px;
-    background: var(--yellow);
+    background: $yellow;
     pointer-events: none;
   }
 
@@ -51,15 +56,15 @@
     width: 48px;
     height: 48px;
     margin: -24px 0 0 -24px;
-    border-radius: 50%;
-    background: var(--yellow);
-    color: var(--ink);
+    border-radius: $radius-round;
+    background: $yellow;
+    color: $ink;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    font-size: $fs-md;
+    box-shadow: 0 6px 20px rgba($black, 0.4);
     @include smooth;
   }
 
@@ -83,17 +88,17 @@
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-  gap: 16px;
+  gap: $gap-cards;
 }
 
 .work {
   position: relative;
   aspect-ratio: 4/3;
-  border-radius: 16px;
+  border-radius: $radius-thumb;
   overflow: hidden;
-  border: 1px solid #262a33;
+  border: 1px solid $line-media;
   padding: 0;
-  background: #1b1f27;
+  background: $stripe-1;
   cursor: zoom-in;
   display: block;
   width: 100%;
@@ -102,15 +107,15 @@
   &__bg {
     position: absolute;
     inset: 0;
-    background: var(--stripes);
-    transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+    background: $stripes;
+    transition: transform $t-very-slow $ease-out-smooth;
   }
 
   .tag { pointer-events: none; }
 
   @include hover {
-    border-color: var(--yellow);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    border-color: $yellow;
+    box-shadow: 0 16px 40px rgba($black, 0.45);
 
     .work__bg { transform: scale(1.06); }
   }
@@ -124,33 +129,33 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  border: 1px solid #2c313b;
-  border-radius: 24px;
+  border: 1px solid $line-dark-2;
+  border-radius: $radius-panel;
   padding: clamp(24px, 3vw, 40px);
-  background: linear-gradient(120deg, #161a22, #1b2236);
+  background: $cta-gradient;
 
   &__copy { display: flex; flex-direction: column; gap: 8px; max-width: 36em; }
 
-  h3 { margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.02em; color: #fff; }
-  p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted-dark); }
+  h3 { margin: 0; font-size: $fs-h3-cta; font-weight: 600; letter-spacing: -0.02em; color: $white; }
+  p { margin: 0; font-size: $fs-md; line-height: 1.55; color: $muted-dark; }
 }
 
 .btn-cta {
   @include pill-button(16px, 26px, 16px, 52px);
 
   &--yellow {
-    background: var(--yellow);
-    color: var(--ink);
+    background: $yellow;
+    color: $ink;
     font-weight: 600;
-    transition: transform .25s;
-    @include hover { color: var(--ink); transform: translateY(-2px); }
+    transition: transform $t-fast;
+    @include hover { color: $ink; transform: translateY(-2px); }
   }
 
   &--outline {
-    border: 1px solid #3a3f4a;
-    color: var(--text-light);
+    border: 1px solid $border-dark;
+    color: $text-light;
     font-weight: 500;
-    transition: border-color .25s;
-    @include hover { border-color: var(--yellow); }
+    transition: border-color $t-fast;
+    @include hover { border-color: $yellow; }
   }
 }

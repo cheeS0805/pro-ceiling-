@@ -1,15 +1,16 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
 // ---------- Логотип ----------
 .logo {
-  --logo-bg: var(--bg);
+  --logo-bg: #{$bg}; // CSS-змінна: у логотипа в підвалі інший фон
   position: relative;
   width: 84px;
   height: 54px;
   display: block;
   flex: none;
 
-  &--footer { --logo-bg: var(--bg-footer); }
+  &--footer { --logo-bg: #{$bg-footer}; }
 
   &__sq1, &__sq2 {
     position: absolute;
@@ -18,8 +19,8 @@
     display: block;
     @include smooth;
   }
-  &__sq1 { left: 30px; top: 0; border: 2.5px solid var(--yellow); }
-  &__sq2 { left: 22px; top: 7px; border: 2.5px solid var(--blue-light); background: var(--logo-bg); }
+  &__sq1 { left: 30px; top: 0; border: 2.5px solid $yellow; }
+  &__sq2 { left: 22px; top: 7px; border: 2.5px solid $blue-light; background: var(--logo-bg); }
 
   &__text {
     position: absolute;
@@ -28,7 +29,7 @@
     display: flex;
     flex-direction: column;
     line-height: 0.95;
-    color: #fff;
+    color: $white;
     font-weight: 500;
   }
   &__pro { font-size: 23px; letter-spacing: 0.02em; background: var(--logo-bg); padding-right: 2px; }
@@ -45,12 +46,12 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(14, 16, 20, 0.86);
+  z-index: $z-header;
+  background: rgba($bg, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid #22262e;
-  color: var(--text-light);
+  border-bottom: 1px solid $line-dark;
+  color: $text-light;
 }
 
 .progress {
@@ -59,14 +60,14 @@
   bottom: -1px;
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  background: linear-gradient(90deg, $blue, $yellow);
   transform-origin: left;
   transform: scaleX(0);
 }
 
 .header-inner {
   @include wrap;
-  padding: 12px var(--pad-x);
+  padding: 12px $pad-x;
   display: flex;
   align-items: center;
   gap: 12px 28px;
@@ -76,8 +77,8 @@
 .main-nav {
   display: flex;
   gap: 24px;
-  font-size: 15px;
-  color: #a3a9b6;
+  font-size: $fs-base;
+  color: $nav-text;
   order: 3;
   flex-basis: 100%;
   white-space: nowrap;
@@ -85,8 +86,8 @@
 
   // Жовте підкреслення виїжджає зліва при наведенні
   a {
-    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 0 2px no-repeat;
-    transition: color .25s, background-size .3s;
+    background: linear-gradient($yellow, $yellow) left bottom / 0 2px no-repeat;
+    transition: color $t-fast, background-size $t-medium;
     @include hover { background-size: 100% 2px; }
   }
 }
@@ -100,36 +101,36 @@
   justify-content: flex-end;
 }
 
-.header-phone { font-weight: 600; font-size: 16px; white-space: nowrap; }
+.header-phone { font-weight: 600; font-size: $fs-md; white-space: nowrap; }
 
 .btn-header {
-  background: var(--yellow);
-  color: var(--ink);
+  background: $yellow;
+  color: $ink;
   @include pill-button(12px, 20px, 15px, 44px);
   font-weight: 600;
   flex-shrink: 0;
-  transition: transform .25s, box-shadow .25s;
-  @include hover { color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+  transition: transform $t-fast, box-shadow $t-fast;
+  @include hover { color: $ink; transform: translateY(-2px); box-shadow: $shadow-yellow; }
 }
 
 // ---------- Шапка на мобільному ----------
 .header-mobile { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 
 .btn-header-mobile {
-  background: var(--yellow);
-  color: var(--ink);
+  background: $yellow;
+  color: $ink;
   @include pill-button(10px, 16px, 14px, 44px);
   font-weight: 600;
   @include smooth;
-  @include hover { color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+  @include hover { color: $ink; transform: translateY(-2px); box-shadow: $shadow-yellow; }
 }
 
 .burger {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
-  border: 1px solid #2c313b;
-  background: #161920;
+  border-radius: $radius-icon-btn;
+  border: 1px solid $line-dark-2;
+  background: $surface-dark;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,10 +139,10 @@
   cursor: pointer;
   padding: 0;
   @include smooth;
-  @include hover { border-color: var(--yellow); background: #1d212a; }
+  @include hover { border-color: $yellow; background: $surface-dark-hover; }
 
-  span { width: 20px; height: 2px; background: #fff; display: block; border-radius: 2px; }
-  span:last-child { width: 14px; background: var(--yellow); margin-left: 6px; }
+  span { width: 20px; height: 2px; background: $white; display: block; border-radius: 2px; }
+  span:last-child { width: 14px; background: $yellow; margin-left: 6px; }
 }
 
 // ---------- Мобільна / десктопна версія ----------

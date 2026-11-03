@@ -1,15 +1,16 @@
+@use 'tokens' as *;
 @use 'mixins' as *;
 
 // ---------- Підвал ----------
 .site-footer {
-  background: var(--bg-footer);
-  color: var(--text-light);
-  border-top: 1px solid #1e2129;
+  background: $bg-footer;
+  color: $text-light;
+  border-top: 1px solid $line-footer;
 }
 
 .footer-inner {
   @include wrap;
-  padding: clamp(48px, 6vw, 80px) var(--pad-x) 32px;
+  padding: clamp(48px, 6vw, 80px) $pad-x 32px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 36px 40px;
@@ -20,27 +21,27 @@
   flex-direction: column;
   gap: 16px;
 
-  p { margin: 0; font-size: 15px; line-height: 1.55; color: #a3a9b6; }
+  p { margin: 0; font-size: $fs-base; line-height: 1.55; color: $nav-text; }
 }
 
-.footer-col { display: flex; flex-direction: column; gap: 10px; font-size: 16px; }
-.footer-title { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); }
+.footer-col { display: flex; flex-direction: column; gap: 10px; font-size: $fs-md; }
+.footer-title { font-size: $fs-xs; letter-spacing: 0.1em; text-transform: uppercase; color: $yellow; }
 .footer-phone { font-weight: 600; font-size: 19px; }
-.footer-muted { color: #a3a9b6; }
+.footer-muted { color: $nav-text; }
 
 .footer-cta {
-  color: #7d9bf0;
+  color: $blue-link;
   font-weight: 500;
   @include smooth;
-  @include hover { color: var(--yellow); padding-left: 4px; }
+  @include hover { color: $yellow; padding-left: 4px; }
 }
 
 .footer-bottom {
   @include wrap;
-  padding: 20px var(--pad-x) 32px;
-  border-top: 1px solid #1e2129;
-  font-size: 13px;
-  color: #8a909c;
+  padding: 20px $pad-x 32px;
+  border-top: 1px solid $line-footer;
+  font-size: $fs-xs;
+  color: $text-dim;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
