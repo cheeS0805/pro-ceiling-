@@ -57,4 +57,7 @@ Claude Code in Action…»).
 - [x] Додатково: TypeScript (`src/script.ts`) і SCSS (`src/scss/`), збірка `npm run build`
 - [x] 3. /init → CLAUDE.md проєкту (5207731) + особистий ~/.claude/CLAUDE.md
 - [x] Додатково: токени дизайну в `src/scss/_tokens.scss` (1b3a1f2)
-- [ ] 4. Skill «add-portfolio-item»
+- [ ] 4. Skill «add-portfolio-item» — готовий і протестований (a15676d, 35c2dd9); ✅ після першого справжнього фото від Макса
+- [x] 5. Skill «verify-site»: `npm run verify` / `verify:quick` (3cb1e66)
+- [x] 6. Hook PostToolUse: `.claude/settings.json` → `.claude/hooks/after-edit.mjs` (збірка + verify:quick, exit 2 при ❌)
+- [ ] 7. Hook PreToolUse
