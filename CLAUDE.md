@@ -20,7 +20,7 @@ npm run watch:ts
 npm run serve        # http://127.0.0.1:8000/ (= py -m http.server 8000)
 ```
 
-- Тестів і лінтера немає. Перевірка після змін: `npm run build` без помилок + подивитися сторінку.
+- Перевірка: **`npm run verify`** (повна, ~30 с: збірка, файли, телефони, кліки й ширина в headless Chrome, скриншоти) або `npm run verify:quick` (без браузера, ~0,5 с). Деталі — skill `verify-site`. Лінтера немає.
 - На цій машині `python` — заглушка Microsoft Store; Python запускати через **`py`**.
 - Скриншот без браузера: `"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --hide-scrollbars --force-prefers-reduced-motion --window-size=1280,6400 --virtual-time-budget=6000 --screenshot=out.png http://127.0.0.1:8000/`. Headless Chrome не вміє вікно вужче ~500px — мобільний вигляд перевіряй на `600,1500` (це вже мобільна версія, < 900px) або через iframe потрібної ширини.
 

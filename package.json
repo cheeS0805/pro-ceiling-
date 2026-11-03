@@ -8,7 +8,9 @@
     "build:ts": "tsc",
     "watch:css": "sass --watch src/scss/styles.scss styles.css --no-source-map",
     "watch:ts": "tsc --watch",
-    "serve": "py -m http.server 8000"
+    "serve": "py -m http.server 8000",
+    "verify": "node .claude/skills/verify-site/verify.mjs",
+    "verify:quick": "node .claude/skills/verify-site/verify.mjs --quick"
   },
   "devDependencies": {
     "sass": "1.107.1",

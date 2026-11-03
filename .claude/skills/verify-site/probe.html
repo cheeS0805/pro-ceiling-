@@ -1,0 +1,124 @@
+<!doctype html>
+<!-- Сторінка-тестувальник для verify.mjs: відкриває сайт в iframe на двох ширинах,
+     клікає інтерактив і пише результати JSON-ом у <pre id="out">. -->
+<meta charset="utf-8">
+<body>
+<pre id="out">PENDING</pre>
+<script>
+const results = [];
+const check = (name, ok, info = '') => results.push({ name, ok: !!ok, info: String(info) });
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const num = (s) => Number(String(s).replace(/[^\d]/g, ''));
+
+function openSite(width) {
+  return new Promise((resolve) => {
+    const f = document.createElement('iframe');
+    f.style.cssText = `width:${width}px;height:900px;border:0;display:block`;
+    f.src = '/index.html';
+    f.onload = async () => { await sleep(900); resolve(f.contentDocument); };
+    document.body.appendChild(f);
+  });
+}
+
+async function run() {
+  // ---------- Комп'ютер, 1280px ----------
+  const d = await openSite(1280);
+  const q = (s) => d.querySelector(s);
+  const qa = (s) => Array.from(d.querySelectorAll(s));
+  const visible = (el) => !!el && el.getClientRects().length > 0; // з розміром на екрані (батьки теж не сховані)
+  const W = d.defaultView;
+
+  check('Комп\'ютер: сторінка не ширша за вікно', d.documentElement.scrollWidth <= d.documentElement.clientWidth,
+    `${d.documentElement.scrollWidth} / ${d.documentElement.clientWidth}px`);
+  check('Комп\'ютер: видно меню, бургер схований', visible(q('.main-nav')) && !visible(q('.burger')));
+
+  // Скрипт запустився (калькулятор порахував суму)
+  const total = () => num(q('[data-calc=total]')?.textContent);
+  check('Скрипт запустився (калькулятор показує суму)', total() > 0, q('[data-calc=total]')?.textContent);
+
+  // Калькулятор
+  const types = qa('[data-type]');
+  if (types.length > 1) {
+    types[1].click(); await sleep(50);
+    check('Калькулятор: перемикач типу стелі', types[1].classList.contains('is-active') && !types[0].classList.contains('is-active'));
+  }
+  const before = total();
+  q('#lights-inc')?.click(); await sleep(50);
+  check('Калькулятор: «+» світильник збільшує суму', total() > before, `${before} → ${total()}`);
+  const area = q('#calc-area');
+  if (area) {
+    const t0 = total(); area.value = String(Number(area.value) + 10); area.dispatchEvent(new Event('input')); await sleep(50);
+    check('Калькулятор: повзунок площі змінює суму', total() > t0, `${t0} → ${total()}`);
+  }
+
+  // Фактури
+  const tex = qa('[data-texture]');
+  if (tex.length > 1) {
+    const label0 = q('#texture-label')?.textContent;
+    tex[1].click(); await sleep(50);
+    check('Фактури: перемикач змінює зразок', tex[1].classList.contains('is-active') && q('#texture-label')?.textContent !== label0);
+  }
+
+  // До / після
+  const ba = q('#ba-range');
+  if (ba) {
+    ba.value = '30'; ba.dispatchEvent(new Event('input')); await sleep(50);
+    check('До/після: повзунок рухає лінію', q('#ba-line')?.style.left === '30%', q('#ba-line')?.style.left);
+  }
+
+  // Портфоліо й лайтбокс
+  const works = qa('[data-work]');
+  const imgs = qa('.work__img');
+  const broken = imgs.filter((im) => !(im.complete && im.naturalWidth > 0)).map((im) => im.getAttribute('src'));
+  check('Портфоліо: усі фото завантажились', broken.length === 0, broken.length ? broken.join(', ') : `${imgs.length} фото, ${works.length - imgs.length} заглушок`);
+  if (works.length) {
+    works[0].click(); await sleep(50);
+    const label = () => q('#lightbox-label')?.textContent || '';
+    check('Лайтбокс: відкривається з номером «1 / N»', !q('#lightbox').hidden && label().endsWith(`1 / ${works.length}`), label());
+    q('#lightbox-next')?.click(); await sleep(50);
+    const expect2 = works.length > 1 ? `2 / ${works.length}` : `1 / 1`;
+    check('Лайтбокс: стрілка → гортає', label().endsWith(expect2), label());
+    W.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); await sleep(50);
+    check('Лайтбокс: Esc закриває', q('#lightbox').hidden);
+  }
+
+  // FAQ
+  const faq = qa('.faq-item');
+  if (faq.length > 1) {
+    faq[1].querySelector('button').click(); await sleep(50);
+    check('FAQ: відкривається одне питання', faq[1].classList.contains('is-open') && faq.filter((f) => f.classList.contains('is-open')).length === 1);
+  }
+
+  // Форма
+  const form = q('#request-form');
+  if (form) {
+    form.querySelectorAll('[required]').forEach((el) => { el.value = el.type === 'tel' ? '+380000000000' : 'Тест'; });
+    form.querySelector('[type=submit]').click(); await sleep(50);
+    check('Форма: після відправки «Дякуємо»', form.hidden && !q('#request-thanks').hidden);
+    q('#request-reset')?.click(); await sleep(50);
+    check('Форма: «Надіслати ще одну» повертає форму', !form.hidden);
+  }
+
+  // ---------- Телефон, 390px ----------
+  const m = await openSite(390);
+  const mq = (s) => m.querySelector(s);
+  const mvisible = (el) => !!el && el.getClientRects().length > 0;
+  const wide = Array.from(m.querySelectorAll('body *'))
+    .filter((el) => { const r = el.getBoundingClientRect(); return r.width && r.right > m.documentElement.clientWidth + 1 && !el.closest('.marquee-band, .hero, .prices, [hidden]'); })
+    .slice(0, 5).map((el) => el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ')[0] : ''));
+  check('Телефон: сторінка не ширша за екран', m.documentElement.scrollWidth <= m.documentElement.clientWidth,
+    `${m.documentElement.scrollWidth} / ${m.documentElement.clientWidth}px${wide.length ? '; винуваті: ' + wide.join(', ') : ''}`);
+  check('Телефон: видно бургер і кнопку дзвінка, меню схована', mvisible(mq('.burger')) && mvisible(mq('.call-float')) && !mvisible(mq('.main-nav')));
+  mq('#menu-open')?.click(); await sleep(50);
+  const opened = !mq('#mobile-menu').hidden;
+  mq('.mobile-nav a')?.click(); await sleep(50);
+  check('Телефон: меню відкривається й закривається пунктом', opened && mq('#mobile-menu').hidden);
+  mq('#call-toggle')?.click(); await sleep(50);
+  check('Телефон: кнопка дзвінка показує номери', !mq('#call-list').hidden);
+}
+
+run()
+  .catch((e) => check('Тестувальник не впав', false, e && e.message))
+  .finally(() => { document.getElementById('out').textContent = JSON.stringify(results); });
+</script>
+</body>
