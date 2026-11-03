@@ -20,11 +20,10 @@ const args = new Set(process.argv.slice(2));
 const QUICK = args.has('--quick');
 const NO_BUILD = args.has('--no-build');
 
-// Справжні телефони фірми — інших tel: на сайті бути не повинно
-const PHONES = {
-  '+380633890618': { name: 'Максим', text: '063 389 06 18' },
-  '+380638129083': { name: 'Ілля', text: '063 812 90 83' },
-};
+// Справжні телефони фірми (єдиний список — .claude/contacts.json) — інших tel: на сайті бути не повинно
+const PHONES = Object.fromEntries(
+  JSON.parse(readFileSync(join(ROOT, '.claude/contacts.json'), 'utf8')).phones.map((p) => [p.tel, p]),
+);
 
 const report = [];
 const ok = (name, info = '') => report.push({ s: '✅', name, info });

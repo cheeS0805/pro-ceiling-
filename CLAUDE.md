@@ -22,6 +22,7 @@ npm run serve        # http://127.0.0.1:8000/ (= py -m http.server 8000)
 
 - Перевірка: **`npm run verify`** (повна, ~30 с: збірка, файли, телефони, кліки й ширина в headless Chrome, скриншоти) або `npm run verify:quick` (без браузера, ~0,5 с). Деталі — skill `verify-site`. Лінтера немає.
 - **Хук PostToolUse** (`.claude/settings.json` → `.claude/hooks/after-edit.mjs`): після кожного Edit/Write файлів `index.html`, `src/`, `package.json`, `tsconfig.json` сам збирає змінене (SCSS → `build:css`, TS → `build:ts`) і запускає `verify:quick`. Якщо він повернув ❌ — це не збій, а сигнал: полагодь, перш ніж іти далі. Тому після правок у `src/` окремо запускати `npm run build` не треба.
+- **Хук PreToolUse** (`.claude/hooks/before-edit.mjs`) спрацьовує ДО правки й забороняє: редагувати `styles.css`/`script.js`; редагувати `.claude/contacts.json`; ставити в `index.html` номер, якого немає в `contacts.json`, або прибирати справжній номер із сайту повністю. Отримав від нього відмову — не обходь (через Bash теж), а поясни користувачці, що зробити: для нового номера вона сама оновлює `.claude/contacts.json`.
 - На цій машині `python` — заглушка Microsoft Store; Python запускати через **`py`**.
 - Скриншот без браузера: `"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --hide-scrollbars --force-prefers-reduced-motion --window-size=1280,6400 --virtual-time-budget=6000 --screenshot=out.png http://127.0.0.1:8000/`. Headless Chrome не вміє вікно вужче ~500px — мобільний вигляд перевіряй на `600,1500` (це вже мобільна версія, < 900px) або через iframe потрібної ширини.
 
@@ -46,7 +47,7 @@ npm run serve        # http://127.0.0.1:8000/ (= py -m http.server 8000)
 
 ## Правила контенту
 
-- Справжні дані: Черкаси та Сміла; Максим `063 389 06 18` (`tel:+380633890618`), Ілля `063 812 90 83` (`tel:+380638129083`); Instagram `@_proceiling`. Телефони не змінювати без прямого прохання.
+- Справжні дані: Черкаси та Сміла; телефони Максима й Іллі — єдиний список у `.claude/contacts.json` (його читають `verify` і хук); Instagram `@_proceiling`.
 - Усе в квадратних дужках — заглушки: `[ціна]`, `[email]`, `[строк гарантії]`, `[графік роботи]`, `[вулиця, будинок]`, `[рік]`, `[@нікнейм]`… **Не замінювати вигаданим.** Не додавати відгуків, років досвіду, кількості об'єктів, рейтингів.
 - Портфоліо: фото лежать у `images/portfolio/`, додавати **тільки через skill `add-portfolio-item`** (`.claude/skills/`) — він стискає фото й вставляє картку за шаблоном. Поки справжніх фото немає, там смугасті заглушки. Форма заявки нічого не надсилає (лише показує «Дякуємо»), бекенду немає.
 

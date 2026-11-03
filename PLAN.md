@@ -60,4 +60,5 @@ Claude Code in Action…»).
 - [ ] 4. Skill «add-portfolio-item» — готовий і протестований (a15676d, 35c2dd9); ✅ після першого справжнього фото від Макса
 - [x] 5. Skill «verify-site»: `npm run verify` / `verify:quick` (3cb1e66)
 - [x] 6. Hook PostToolUse: `.claude/settings.json` → `.claude/hooks/after-edit.mjs` (збірка + verify:quick, exit 2 при ❌)
-- [ ] 7. Hook PreToolUse
+- [x] 7. Hook PreToolUse: `.claude/hooks/before-edit.mjs` — заборона чужих номерів, правок `contacts.json` і згенерованих файлів
+- [ ] 8. Субагент-рецензент
