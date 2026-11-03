@@ -24,6 +24,9 @@ input, textarea, button { font-family: inherit; }
 
 [hidden] { display: none !important; }
 
+// Помітна рамка фокусу для тих, хто ходить сайтом клавішею Tab (мишкою її не видно)
+:focus-visible { outline: 3px solid $yellow; outline-offset: 3px; }
+
 // ---------- Загальні блоки ----------
 .container {
   @include wrap;

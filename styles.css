@@ -33,6 +33,11 @@ input, textarea, button {
   display: none !important;
 }
 
+:focus-visible {
+  outline: 3px solid #f2d41c;
+  outline-offset: 3px;
+}
+
 .container {
   max-width: 1240px;
   margin: 0 auto;
@@ -409,6 +414,12 @@ input, textarea, button {
 }
 .hero__photo .tag {
   padding: 6px 10px;
+}
+@media (max-width: 899.98px) {
+  .hero__photo {
+    aspect-ratio: 4/3;
+    max-height: 360px;
+  }
 }
 
 .glow {
@@ -1588,6 +1599,11 @@ input, textarea, button {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px;
+}
+@media (max-width: 899.98px) {
+  .footer-bottom {
+    padding-bottom: 104px;
+  }
 }
 
 .call-float {

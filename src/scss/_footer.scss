@@ -46,4 +46,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px;
+
+  // На телефоні — місце під плаваючою кнопкою «Дзвінок» (64px + відступи), щоб вона нічого не закривала
+  @include mobile { padding-bottom: 104px; }
 }

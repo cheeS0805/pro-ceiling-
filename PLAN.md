@@ -61,4 +61,5 @@ Claude Code in Action…»).
 - [x] 5. Skill «verify-site»: `npm run verify` / `verify:quick` (3cb1e66)
 - [x] 6. Hook PostToolUse: `.claude/settings.json` → `.claude/hooks/after-edit.mjs` (збірка + verify:quick, exit 2 при ❌)
 - [x] 7. Hook PreToolUse: `.claude/hooks/before-edit.mjs` — заборона чужих номерів, правок `contacts.json` і згенерованих файлів
-- [ ] 8. Субагент-рецензент
+- [x] 8. Субагент `site-reviewer` (`.claude/agents/`) + правки за його звітом: SEO, тексти, доступність, мобільний вигляд
+- [ ] 9. Claude in Chrome (MCP)

@@ -32,6 +32,11 @@ function $$(selector) {
     return document.querySelectorAll(selector);
 }
 const fmt = (n) => n.toLocaleString('uk-UA');
+/** Вмикає кнопку-перемикач: підсвітка (is-active) і aria-pressed для програм читання з екрана */
+const setPressed = (button, on) => {
+    button.classList.toggle('is-active', on);
+    button.setAttribute('aria-pressed', String(on));
+};
 document.addEventListener('DOMContentLoaded', () => {
     initMenu();
     initCallButton();
@@ -81,7 +86,7 @@ function initTextures() {
         const tex = TEXTURES.find((t) => t.id === id);
         if (!tex)
             return;
-        buttons.forEach((b) => b.classList.toggle('is-active', b.dataset.texture === tex.id));
+        buttons.forEach((b) => setPressed(b, b.dataset.texture === tex.id));
         preview.style.background = tex.bg;
         shine.style.background =
             `linear-gradient(115deg,transparent 30%,rgba(255,255,255,${tex.shine}) 48%,transparent 62%)`;
@@ -105,7 +110,7 @@ function initCalculator() {
             return;
         const sumCeil = state.area * t.price;
         const sumLights = state.lights * LIGHT_PRICE;
-        typeButtons.forEach((b) => b.classList.toggle('is-active', b.dataset.type === state.type));
+        typeButtons.forEach((b) => setPressed(b, b.dataset.type === state.type));
         setText('area', state.area);
         setText('lights', state.lights);
         setText('typeLabel', t.label);

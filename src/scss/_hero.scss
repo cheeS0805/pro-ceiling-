@@ -62,6 +62,9 @@
     box-shadow: 0 30px 80px rgba($black, 0.5);
 
     .tag { padding: 6px 10px; }
+
+    // На телефоні фото нижче, щоб одразу було видно, що далі є послуги
+    @include mobile { aspect-ratio: 4/3; max-height: 360px; }
   }
 }
 

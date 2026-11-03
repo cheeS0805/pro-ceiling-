@@ -53,5 +53,6 @@ npm run serve        # http://127.0.0.1:8000/ (= py -m http.server 8000)
 
 ## Відомі пастки
 
+- Тексти FAQ є у двох місцях: секція «Часті питання» і JSON-LD `FAQPage` унизу `index.html` (для Google). Змінив питання чи відповідь — зміни в обох. Так само `meta description` і `og:description` мають збігатися.
 - Сторінка не має бути ширшою за екран телефона. Елемент з `aspect-ratio` + `min-height` розтягується вшир (так було з блоком «до/після» `.ba` — виправлено `max-width: 100%`). Перевірка: на ширині 375px `document.documentElement.scrollWidth === clientWidth`.
 - Коміти — українською, по одному на логічну зміну.
