@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRO CEILING — натяжні стелі Черкаси та Сміла</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="progress" data-progress></div>
+  <div class="header-inner">
+    <a href="#top" class="logo" aria-label="PRO CEILING"><span class="logo__sq1"></span><span class="logo__sq2"></span><span class="logo__text"><span class="logo__pro">PRO</span><span class="logo__ceiling">CEILING</span></span></a>
+
+    <!-- Десктоп (від 900px) -->
+    <nav class="main-nav">
+      <a href="#services">Послуги</a>
+      <a href="#prices">Ціни</a>
+      <a href="#calc">Калькулятор</a>
+      <a href="#process">Як ми працюємо</a>
+      <a href="#portfolio">Портфоліо</a>
+      <a href="#faq">Питання</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+380633890618" class="header-phone">063 389 06 18</a>
+      <a href="#request" class="btn-header">Безкоштовний замір</a>
+    </div>
+
+    <!-- Мобільна версія (до 900px) -->
+    <div class="header-mobile">
+      <a href="#request" class="btn-header-mobile">Замір</a>
+      <button type="button" class="burger" id="menu-open" aria-label="Меню" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Головний екран -->
+  <section class="hero">
+    <div class="glow glow--1" data-glow></div>
+    <div class="glow glow--2" data-glow></div>
+    <div class="glow glow--3" data-glow></div>
+    <div class="hero__inner">
+      <div class="hero__text">
+        <div class="eyebrow" data-reveal><span class="square"></span>Натяжні стелі · Черкаси та Сміла</div>
+        <h1 class="hero__title" data-reveal data-delay="100">Ідеально рівна стеля за&nbsp;<span class="accent">1&nbsp;день</span></h1>
+        <p class="hero__lead" data-reveal data-delay="200">Монтуємо натяжні стелі будь-якої складності: від класичних матових до ширяючих конструкцій з підсвіткою. Без пилу, без мокрих робіт, з гарантією.</p>
+        <div class="btn-row" data-reveal data-delay="300">
+          <a href="#request" class="btn-hero btn-hero--primary">Залишити заявку</a>
+          <a href="#prices" class="btn-hero btn-hero--outline">Дивитися ціни</a>
+        </div>
+      </div>
+      <div class="hero__visual" data-reveal data-delay="250">
+        <div class="hero__frame" data-float></div>
+        <div class="hero__photo">
+          <span class="tag tag--dark">Фото роботи · інтер'єр зі стелею</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Біжучий рядок (список повторено двічі для безшовної анімації) -->
+  <div class="marquee-band">
+    <div class="marquee" data-marquee>
+      <span>Матові</span><span class="sep">■</span><span>Глянцеві</span><span class="sep">■</span><span>Сатинові</span><span class="sep">■</span><span>Двоярусні</span><span class="sep">■</span><span>З фотодруком</span><span class="sep">■</span><span>З підсвіткою</span><span class="sep">■</span><span>«Ширяючі»</span><span class="sep">■</span><span>Монтаж світильників</span><span class="sep">■</span>
+      <span>Матові</span><span class="sep">■</span><span>Глянцеві</span><span class="sep">■</span><span>Сатинові</span><span class="sep">■</span><span>Двоярусні</span><span class="sep">■</span><span>З фотодруком</span><span class="sep">■</span><span>З підсвіткою</span><span class="sep">■</span><span>«Ширяючі»</span><span class="sep">■</span><span>Монтаж світильників</span><span class="sep">■</span>
+    </div>
+  </div>
+
+  <!-- Послуги -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 class="h2">Послуги</h2>
+        <p class="section-sub">Підберемо фактуру й конструкцію під ваш інтер'єр та бюджет.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-reveal><span class="service-card__num">01</span><h3>Матові</h3><p>Виглядають як ідеально пофарбована стеля. Без відблисків.</p></div>
+        <div class="service-card" data-reveal data-delay="60"><span class="service-card__num">02</span><h3>Глянцеві</h3><p>Віддзеркалюють світло і візуально збільшують висоту кімнати.</p></div>
+        <div class="service-card" data-reveal data-delay="120"><span class="service-card__num">03</span><h3>Сатинові</h3><p>М'який перламутровий блиск, середина між матом і глянцем.</p></div>
+        <div class="service-card" data-reveal data-delay="180"><span class="service-card__num">04</span><h3>Двоярусні</h3><p>Кілька рівнів для зонування простору та прихованого освітлення.</p></div>
+        <div class="service-card" data-reveal><span class="service-card__num">05</span><h3>З фотодруком</h3><p>Будь-яке зображення на полотні: небо, візерунок, ваше фото.</p></div>
+        <div class="service-card" data-reveal data-delay="60"><span class="service-card__num">06</span><h3>З підсвіткою</h3><p>Світлові лінії, контурне та приховане LED-освітлення.</p></div>
+        <div class="service-card" data-reveal data-delay="120"><span class="service-card__num">07</span><h3>«Ширяючі»</h3><p>Підсвітка по периметру створює ефект стелі, що ширяє в повітрі.</p></div>
+        <div class="service-card service-card--accent" data-reveal data-delay="180"><span class="service-card__num">08</span><h3>Монтаж світильників</h3><p>Точкові світильники, люстри, трекові системи та світлові лінії.</p></div>
+      </div>
+
+      <!-- Зразки фактур -->
+      <div class="texture-panel" data-reveal>
+        <div class="texture-panel__copy">
+          <span class="kicker">Зразки фактур</span>
+          <h3>Порівняйте, як виглядає полотно</h3>
+          <div class="pill-row">
+            <button type="button" class="pill is-active" data-texture="mat">Мат</button>
+            <button type="button" class="pill" data-texture="gloss">Глянець</button>
+            <button type="button" class="pill" data-texture="satin">Сатин</button>
+          </div>
+          <p class="texture-desc" id="texture-desc">Рівна поверхня без блиску, схожа на ідеально пофарбовану стелю. Підходить для будь-якого інтер'єру й класичних кімнат.</p>
+        </div>
+        <div class="texture-preview" id="texture-preview">
+          <div class="texture-shine" id="texture-shine"></div>
+          <span class="tag tag--bl" id="texture-label">Мат · імітація</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ціни -->
+  <section id="prices" class="prices">
+    <div class="prices__deco" data-float></div>
+    <div class="container prices__inner">
+      <div class="prices__intro" data-reveal>
+        <h2 class="h2">Ціни</h2>
+        <p>Вартість залежить від площі, фактури та кількості кутів. Точну суму фіксуємо після безкоштовного заміру.</p>
+        <a href="#request" class="btn-prices">Розрахувати мою стелю</a>
+      </div>
+      <div class="price-table" data-reveal data-delay="120">
+        <div class="price-table__head"><span>Тип стелі</span><span>Вартість</span></div>
+        <div class="price-row"><span>Матова</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>Глянцева</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>Сатинова</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>Двоярусна</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>З фотодруком</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>З підсвіткою</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>«Ширяюча»</span><span>від [ціна] грн/м²</span></div>
+        <div class="price-row"><span>Монтаж світильника</span><span>від [ціна] грн/шт</span></div>
+      </div>
+      <div class="included" data-reveal>
+        <h3>Що входить у ціну</h3>
+        <div class="chips">
+          <span class="chip"><span class="square"></span>Полотно обраної фактури</span>
+          <span class="chip"><span class="square"></span>Стіновий профіль</span>
+          <span class="chip"><span class="square"></span>Монтаж</span>
+          <span class="chip"><span class="square"></span>Декоративна вставка по периметру</span>
+          <span class="chip"><span class="square"></span>Прибирання після монтажу</span>
+          <span class="chip chip--todo">[уточнити перелік]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Калькулятор (ДЕМО-ціни задаються в script.js) -->
+  <section id="calc" class="calc">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 class="h2">Калькулятор вартості</h2>
+        <span class="demo-badge">ДЕМО: ціни-заглушки, замінити у коді</span>
+      </div>
+      <div class="calc-grid" data-reveal>
+        <div class="calc-controls">
+          <div class="calc-field">
+            <div class="calc-area-row"><span class="calc-label">Площа стелі</span><span class="calc-area-value"><span data-calc="area">20</span> м²</span></div>
+            <input type="range" class="range" id="calc-area" min="5" max="150" step="1" value="20" aria-label="Площа стелі, м²">
+          </div>
+          <div class="calc-field">
+            <span class="calc-label">Тип стелі</span>
+            <div class="pill-row">
+              <button type="button" class="pill pill--square is-active" data-type="mat">Матова</button>
+              <button type="button" class="pill pill--square" data-type="gloss">Глянцева</button>
+              <button type="button" class="pill pill--square" data-type="satin">Сатинова</button>
+              <button type="button" class="pill pill--square" data-type="two">Двоярусна</button>
+              <button type="button" class="pill pill--square" data-type="print">З фотодруком</button>
+              <button type="button" class="pill pill--square" data-type="led">З підсвіткою</button>
+              <button type="button" class="pill pill--square" data-type="float">«Ширяюча»</button>
+            </div>
+          </div>
+          <div class="calc-lights-row">
+            <span class="calc-label">Світильники</span>
+            <div class="stepper">
+              <button type="button" class="stepper__btn" id="lights-dec" aria-label="Менше">−</button>
+              <span class="stepper__value" data-calc="lights">6</span>
+              <button type="button" class="stepper__btn stepper__btn--plus" id="lights-inc" aria-label="Більше">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-lines">
+            <div class="calc-line"><span><span data-calc="typeLabel">Матова</span>, <span data-calc="area">20</span> м² × <span data-calc="typePrice">400</span> грн</span><span class="calc-line__sum"><span data-calc="sumCeil">8 000</span> грн</span></div>
+            <div class="calc-line"><span>Світильники, <span data-calc="lights">6</span> × <span data-calc="lightPrice">150</span> грн</span><span class="calc-line__sum"><span data-calc="sumLights">900</span> грн</span></div>
+          </div>
+          <div class="calc-total-box">
+            <span class="calc-total-label">Орієнтовна вартість</span>
+            <span class="calc-total"><span data-calc="total">8 900</span> грн</span>
+            <span class="calc-note">Точну суму назве майстер після безкоштовного заміру.</span>
+          </div>
+          <a href="#request" class="btn-calc">Зафіксувати ціну на замірі</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Як ми працюємо -->
+  <section id="process" class="process">
+    <div class="container">
+      <h2 class="h2 h2--spaced" data-reveal>Як ми працюємо</h2>
+      <div class="steps-grid">
+        <div class="step" data-reveal><span class="step__num">1</span><h3>Заявка</h3><p>Залишаєте заявку на сайті або телефонуєте. Узгоджуємо зручний час заміру.</p></div>
+        <div class="step" data-reveal data-delay="120"><span class="step__num">2</span><h3>Замір</h3><p>Майстер безкоштовно приїжджає, робить заміри, показує зразки й називає точну ціну.</p></div>
+        <div class="step" data-reveal data-delay="240"><span class="step__num">3</span><h3>Монтаж</h3><p>Встановлюємо стелю за один день, акуратно і без пилу. Прибираємо після себе.</p></div>
+        <div class="step step--final" data-reveal data-delay="360"><span class="step__num">4</span><h3>Гарантія</h3><p>Видаємо гарантійний талон на полотно та монтаж строком [строк гарантії].</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Портфоліо -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2 class="h2 h2--spaced" data-reveal>Портфоліо</h2>
+
+      <!-- До / після -->
+      <div class="ba" data-reveal>
+        <div class="ba__after"></div>
+        <span class="tag tag--br ba__tag-after">Фото «після»</span>
+        <div class="ba__before" id="ba-before">
+          <span class="tag tag--bl ba__tag-before">Фото «до»</span>
+        </div>
+        <div class="ba__line" id="ba-line">
+          <span class="ba__handle">↔</span>
+        </div>
+        <input type="range" class="ba__range" id="ba-range" min="0" max="100" value="50" aria-label="До / після">
+      </div>
+
+      <!-- Роботи (клік відкриває лайтбокс) -->
+      <div class="works-grid">
+        <button type="button" class="work" data-work="0" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work="1" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work="2" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work="3" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work="4" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work="5" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+      </div>
+
+      <div class="cta-box" data-reveal>
+        <div class="cta-box__copy">
+          <h3>Хочете таку стелю у себе?</h3>
+          <p>Майстер приїде на безкоштовний замір і покаже зразки полотен.</p>
+        </div>
+        <div class="btn-row">
+          <a href="#request" class="btn-cta btn-cta--yellow">Залишити заявку</a>
+          <a href="tel:+380633890618" class="btn-cta btn-cta--outline">Подзвонити</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Чому ми -->
+  <section id="why" class="why">
+    <div class="container">
+      <h2 class="h2 h2--spaced" data-reveal>Чому ми</h2>
+      <div class="why-grid">
+        <div class="why-card" data-reveal><span class="why-card__mark"></span><h3>Монтаж за 1 день</h3><p>Стандартну кімнату встановлюємо за один візит, без переривання ремонту.</p></div>
+        <div class="why-card" data-reveal data-delay="100"><span class="why-card__mark"></span><h3>Ціна фіксується в договорі</h3><p>Сума після заміру не змінюється під час монтажу.</p></div>
+        <div class="why-card" data-reveal data-delay="200"><span class="why-card__mark"></span><h3>Чистий монтаж</h3><p>Захищаємо меблі й підлогу, прибираємо після завершення робіт.</p></div>
+        <div class="why-card" data-reveal data-delay="300"><span class="why-card__mark"></span><h3>Офіційна гарантія</h3><p>Гарантія на полотно і роботу — [строк гарантії], з письмовим талоном.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Часті питання -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="h2" data-reveal>Часті питання</h2>
+      <div class="faq-list">
+        <div class="faq-item is-open" data-reveal>
+          <button type="button" class="faq-item__q" aria-expanded="true"><span>Чи буде запах після монтажу?</span><span class="faq-item__icon">+</span></button>
+          <p class="faq-item__a">Легкий запах полотна можливий у перші години після монтажу. Він зникає після провітрювання.</p>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button type="button" class="faq-item__q" aria-expanded="false"><span>Що буде, якщо затоплять сусіди?</span><span class="faq-item__icon">+</span></button>
+          <p class="faq-item__a">ПВХ-полотно утримує воду і не дає їй потрапити на меблі та підлогу. Майстер зливає воду, просушує полотно, і воно повертає свою форму.</p>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button type="button" class="faq-item__q" aria-expanded="false"><span>Скільки часу триває монтаж?</span><span class="faq-item__icon">+</span></button>
+          <p class="faq-item__a">Стелю в стандартній кімнаті встановлюємо за один день. Час залежить від площі, кількості кутів і світильників.</p>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button type="button" class="faq-item__q" aria-expanded="false"><span>Чи потрібно виносити меблі?</span><span class="faq-item__icon">+</span></button>
+          <p class="faq-item__a">Ні. Достатньо звільнити доступ до стін. Меблі та підлогу накриваємо плівкою.</p>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button type="button" class="faq-item__q" aria-expanded="false"><span>На якому етапі ремонту ставити стелю?</span><span class="faq-item__icon">+</span></button>
+          <p class="faq-item__a">Після фарбування стін або поклейки шпалер. Проводку під світильники краще підготувати заздалегідь — підкажемо на замірі.</p>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button type="button" class="faq-item__q" aria-expanded="false"><span>Чи можна додати світильники пізніше?</span><span class="faq-item__icon">+</span></button>
+          <p class="faq-item__a">Можна, але простіше передбачити їх одразу: під кожен світильник під час монтажу ставиться закладна.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма заявки (поки без справжньої відправки) -->
+  <section id="request" class="request">
+    <div class="container request__inner">
+      <div class="request__copy" data-reveal>
+        <h2 class="h2">Запишіться на <span class="accent">безкоштовний замір</span></h2>
+        <p>Залиште контакти — ми передзвонимо, відповімо на питання й узгодимо час приїзду майстра.</p>
+      </div>
+      <div data-reveal data-delay="120">
+        <form class="form-card" id="request-form">
+          <label class="field">Ім'я
+            <input class="input" required name="name" placeholder="Як до вас звертатися">
+          </label>
+          <label class="field">Телефон
+            <input class="input" required type="tel" name="phone" placeholder="+380">
+          </label>
+          <label class="field">Коментар
+            <textarea class="input input--area" name="comment" rows="4" placeholder="Площа, кількість кімнат, побажання"></textarea>
+          </label>
+          <button type="submit" class="btn-submit">Надіслати заявку</button>
+          <p class="form-note">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.</p>
+        </form>
+        <div class="thanks" id="request-thanks" hidden>
+          <span class="thanks__icon">✓</span>
+          <h3>Дякуємо, заявку отримано</h3>
+          <p>Ми зателефонуємо вам найближчим часом.</p>
+          <button type="button" class="btn-reset" id="request-reset">Надіслати ще одну</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts" class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo logo--footer" aria-label="PRO CEILING"><span class="logo__sq1"></span><span class="logo__sq2"></span><span class="logo__text"><span class="logo__pro">PRO</span><span class="logo__ceiling">CEILING</span></span></div>
+      <p>Інтер'єрні натяжні стелі в Черкасах та Смілі.</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-title">Контакти</span>
+      <a href="tel:+380633890618" class="footer-phone">063 389 06 18 · Максим</a>
+      <a href="tel:+380638129083" class="footer-phone">063 812 90 83 · Ілля</a>
+      <a href="mailto:">[email]</a>
+      <span class="footer-muted">[графік роботи]</span>
+    </div>
+    <div class="footer-col">
+      <span class="footer-title">Месенджери та соцмережі</span>
+      <a href="#">Viber · [номер]</a>
+      <a href="#">Telegram · [@нікнейм]</a>
+      <a href="https://www.instagram.com/_proceiling/" target="_blank" rel="noopener">Instagram · @_proceiling</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-title">Адреса</span>
+      <span>[вулиця, будинок], Черкаси</span>
+      <a href="#request" class="footer-cta">Безкоштовний замір →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© PRO CEILING, [рік]</span>
+    <span>Натяжні стелі · Черкаси та Сміла</span>
+  </div>
+</footer>
+
+<!-- Плаваюча кнопка дзвінка (тільки на мобільному) -->
+<div class="call-float">
+  <div class="call-list" id="call-list" hidden>
+    <a href="tel:+380633890618" class="call-link">Максим · 063 389 06 18</a>
+    <a href="tel:+380638129083" class="call-link">Ілля · 063 812 90 83</a>
+  </div>
+  <div class="call-btn-wrap">
+    <span class="call-pulse" data-pulse></span>
+    <button type="button" class="call-btn" id="call-toggle" aria-label="Подзвонити" aria-expanded="false">Дзвінок</button>
+  </div>
+</div>
+
+<!-- Мобільне меню -->
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <div class="mobile-menu__top">
+    <span class="mobile-menu__label">Меню</span>
+    <button type="button" class="mobile-menu__close" data-menu-close aria-label="Закрити">×</button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#services" data-menu-close>Послуги</a>
+    <a href="#prices" data-menu-close>Ціни</a>
+    <a href="#calc" data-menu-close>Калькулятор</a>
+    <a href="#process" data-menu-close>Як ми працюємо</a>
+    <a href="#portfolio" data-menu-close>Портфоліо</a>
+    <a href="#faq" data-menu-close>Питання</a>
+    <a href="#contacts" data-menu-close>Контакти</a>
+  </nav>
+  <div class="mobile-menu__bottom">
+    <a href="tel:+380633890618" class="mobile-menu__phone">063 389 06 18 · Максим</a>
+    <a href="tel:+380638129083" class="mobile-menu__phone">063 812 90 83 · Ілля</a>
+    <a href="#request" class="mobile-menu__cta" data-menu-close>Безкоштовний замір</a>
+  </div>
+</div>
+
+<!-- Лайтбокс портфоліо -->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox__stage" id="lightbox-stage">
+    <span class="lightbox__label">Фото роботи <span id="lightbox-n">1</span> / 6</span>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Попереднє">←</button>
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Наступне">→</button>
+  </div>
+  <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Закрити">×</button>
+</div>
+
+</body>
+</html>

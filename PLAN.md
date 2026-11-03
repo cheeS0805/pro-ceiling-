@@ -29,8 +29,8 @@ Claude Code in Action…»).
 
 ## Що вже є
 - Дизайн зроблено в Claude Design, експорт «Архів проєкту».
-- `PRO CEILING Landing v3.dc.html` — єдина версія сайту (v1 і v2 видалено, вони є в першому коміті dde4677).
-- `support.js` — рантайм Claude Design (теги `x-dc`, `helmet`); без нього `.dc.html` не працює.
+- `index.html` + `styles.css` + `script.js` — сайт у звичайному HTML/CSS/JS (крок 2). Відкривається навіть подвійним кліком; локально: `py -m http.server 8000`.
+- Дизайн-версії v1–v3 (`.dc.html`) і `support.js` видалено — вони є в історії Git (dde4677).
 - `uploads/` — скриншот Instagram-сторінки _proceiling.
 - Стиль: темний фон `#0e1014`, жовтий `#f2d41c`, синій `#3f63c9`, шрифт Onest.
 - Реальні дані: Черкаси та Сміла, Instagram @_proceiling, телефони Максима та Іллі.
@@ -53,4 +53,6 @@ Claude Code in Action…»).
 ## Прогрес
 - [x] Дизайн у Claude Design, архів розпаковано
 - [x] 1. Git + перший коміт (dde4677)
-- [ ] 2. Plan mode: v3 → звичайний HTML + CSS
+- [x] 2. Plan mode: v3 → звичайний HTML + CSS + JS (+ виправлено смугу на мобільному, + hover-ефекти)
+- [ ] TypeScript (додатковий крок за бажанням користувачки)
+- [ ] 3. /init → CLAUDE.md
