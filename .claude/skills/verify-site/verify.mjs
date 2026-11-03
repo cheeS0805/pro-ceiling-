@@ -20,9 +20,10 @@ const args = new Set(process.argv.slice(2));
 const QUICK = args.has('--quick');
 const NO_BUILD = args.has('--no-build');
 
-// Справжні телефони фірми (єдиний список — .claude/contacts.json) — інших tel: на сайті бути не повинно
+// Справжні телефони фірми — інших tel: на сайті бути не повинно.
+// Єдиний список — "phones" у .claude/landing-guard.json (налаштування плагіна landing-guard).
 const PHONES = Object.fromEntries(
-  JSON.parse(readFileSync(join(ROOT, '.claude/contacts.json'), 'utf8')).phones.map((p) => [p.tel, p]),
+  JSON.parse(readFileSync(join(ROOT, '.claude/landing-guard.json'), 'utf8')).phones.map((p) => [p.tel, p]),
 );
 
 const report = [];

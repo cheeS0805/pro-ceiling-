@@ -11,18 +11,8 @@
       "Bash(py -m http.server*)"
     ]
   },
-  "hooks": {
-    "SessionStart": [
-      { "hooks": [ { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.mjs\"", "timeout": 15 } ] }
-    ],
-    "UserPromptSubmit": [
-      { "hooks": [ { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/check-prompt.mjs\"", "timeout": 10 } ] }
-    ],
-    "PreToolUse": [
-      { "matcher": "Edit|Write|MultiEdit", "hooks": [ { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/before-edit.mjs\"", "timeout": 30 } ] }
-    ],
-    "PostToolUse": [
-      { "matcher": "Edit|Write|MultiEdit", "hooks": [ { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/after-edit.mjs\"", "timeout": 120, "statusMessage": "Перевіряю сайт після правки…" } ] }
-    ]
+  
+  "enabledPlugins": {
+    "landing-guard@sonia-plugins": true
   }
 }

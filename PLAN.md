@@ -63,4 +63,4 @@ Claude Code in Action…»).
 - [x] 7. Hook PreToolUse: `.claude/hooks/before-edit.mjs` — заборона чужих номерів, правок `contacts.json` і згенерованих файлів
 - [x] 8. Субагент `site-reviewer` (`.claude/agents/`) + правки за його звітом: SEO, тексти, доступність, мобільний вигляд
 - [x] 9. Claude in Chrome (MCP): перевірка в справжньому Chrome — 375px, Tab, консоль, калькулятор; знайдено й виправлено баг із заголовками під шапкою; GIF калькулятора
-- [ ] 10. Плагін
+- [x] 10. Плагін `landing-guard@sonia-plugins` (окремий репозиторій `C:\Users\User\claude-plugins`): 4 хуки + skills `debugging` і `setup`, налаштування сайту в `.claude/landing-guard.json`

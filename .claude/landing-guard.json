@@ -1,0 +1,23 @@
+{
+  "_comment": "Налаштування плагіна landing-guard для PRO CEILING. Змінює лише людина вручну (хук забороняє це Claude). Тут — справжні телефони, які файли генеруються, як збирати й перевіряти.",
+  "phones": [
+    { "name": "Максим", "tel": "+380633890618", "text": "063 389 06 18" },
+    { "name": "Ілля", "tel": "+380638129083", "text": "063 812 90 83" }
+  ],
+  "phoneText": "0\\d{2} \\d{3} \\d{2} \\d{2}",
+  "pages": ["index.html"],
+  "generated": {
+    "styles.css": "src/scss/ (кольори й розміри — у src/scss/_tokens.scss)",
+    "script.js": "src/script.ts"
+  },
+  "build": [
+    { "match": "^src/scss/", "run": "npm run build:css" },
+    { "match": "^src/", "run": "npm run build:ts" },
+    { "match": "^(package|tsconfig)\\.json$", "run": "npm run build" }
+  ],
+  "check": {
+    "match": ["^index\\.html$", "^src/", "^package\\.json$", "^tsconfig\\.json$"],
+    "run": "node .claude/skills/verify-site/verify.mjs --quick --no-build"
+  },
+  "plan": "PLAN.md"
+}

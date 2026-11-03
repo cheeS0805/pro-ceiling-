@@ -21,10 +21,12 @@ npm run serve        # http://127.0.0.1:8000/ (= py -m http.server 8000)
 ```
 
 - Перевірка: **`npm run verify`** (повна, ~30 с: збірка, файли, телефони, кліки й ширина в headless Chrome, скриншоти) або `npm run verify:quick` (без браузера, ~0,5 с). Деталі — skill `verify-site`. Лінтера немає.
-- **Хук PostToolUse** (`.claude/settings.json` → `.claude/hooks/after-edit.mjs`): після кожного Edit/Write файлів `index.html`, `src/`, `package.json`, `tsconfig.json` сам збирає змінене (SCSS → `build:css`, TS → `build:ts`) і запускає `verify:quick`. Якщо він повернув ❌ — це не збій, а сигнал: полагодь, перш ніж іти далі. Тому після правок у `src/` окремо запускати `npm run build` не треба.
-- **Хук PreToolUse** (`.claude/hooks/before-edit.mjs`) спрацьовує ДО правки й забороняє: редагувати `styles.css`/`script.js`; редагувати `.claude/contacts.json`; ставити в `index.html` номер, якого немає в `contacts.json`, або прибирати справжній номер із сайту повністю. Отримав від нього відмову — не обходь (через Bash теж), а поясни користувачці, що зробити: для нового номера вона сама оновлює `.claude/contacts.json`.
-- **Хук SessionStart** (`session-start.mjs`) на початку сесії дає контекст «де ми зупинились» (прогрес PLAN.md, незакомічене, останні коміти). **Хук UserPromptSubmit** (`check-prompt.mjs`) попереджає, якщо в повідомленні користувачки номер, якого немає в `contacts.json`. **`permissions.allow`** у `settings.json` задає користувачка вручну — Claude його сам не розширює.
-- Баг чи дивна поведінка — skill `debugging` (відтворити → ізолювати → причина → виправити → довести).
+- **Плагін `landing-guard@sonia-plugins`** (джерело — `C:\Users\User\claude-plugins\plugins\landing-guard`, увімкнений у `.claude/settings.json`). Усе конкретне для цього сайту — у **`.claude/landing-guard.json`** (телефони, згенеровані файли, збірка, перевірка, план). Його хуки:
+  - **PostToolUse**: після кожного Edit/Write файлів `index.html`, `src/`, `package.json`, `tsconfig.json` сам збирає змінене (SCSS → `build:css`, TS → `build:ts`) і запускає `verify --quick`. ❌ від нього — не збій, а сигнал: полагодь, перш ніж іти далі. Окремо `npm run build` після правок у `src/` запускати не треба.
+  - **PreToolUse**: ДО правки забороняє редагувати `styles.css`/`script.js` і `.claude/landing-guard.json`, ставити в `index.html` номер не зі списку або прибирати справжній номер повністю. Отримав відмову — не обходь (через Bash теж), а поясни користувачці, що зробити: новий номер вона сама вписує в `landing-guard.json`.
+  - **SessionStart** — контекст «де ми зупинились»; **UserPromptSubmit** — попередження про номер не зі списку в повідомленні.
+  - Skills плагіна: `landing-guard:debugging` (баг чи дивна поведінка: відтворити → ізолювати → причина → виправити → довести) і `landing-guard:setup`.
+- **`permissions.allow`** і `enabledPlugins` у `settings.json` задає користувачка вручну — Claude їх сам не розширює. Змінюєш код плагіна — це окремий git-репозиторій `claude-plugins`; після змін `claude plugin update landing-guard@sonia-plugins` і перезапуск сесії.
 - На цій машині `python` — заглушка Microsoft Store; Python запускати через **`py`**.
 - Скриншот без браузера: `"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --hide-scrollbars --force-prefers-reduced-motion --window-size=1280,6400 --virtual-time-budget=6000 --screenshot=out.png http://127.0.0.1:8000/`. Headless Chrome не вміє вікно вужче ~500px — мобільний вигляд перевіряй на `600,1500` (це вже мобільна версія, < 900px) або через iframe потрібної ширини.
 
@@ -49,7 +51,7 @@ npm run serve        # http://127.0.0.1:8000/ (= py -m http.server 8000)
 
 ## Правила контенту
 
-- Справжні дані: Черкаси та Сміла; телефони Максима й Іллі — єдиний список у `.claude/contacts.json` (його читають `verify` і хук); Instagram `@_proceiling`.
+- Справжні дані: Черкаси та Сміла; телефони Максима й Іллі — єдиний список `"phones"` у `.claude/landing-guard.json` (його читають `verify` і плагін); Instagram `@_proceiling`.
 - Усе в квадратних дужках — заглушки: `[ціна]`, `[email]`, `[строк гарантії]`, `[графік роботи]`, `[вулиця, будинок]`, `[рік]`, `[@нікнейм]`… **Не замінювати вигаданим.** Не додавати відгуків, років досвіду, кількості об'єктів, рейтингів.
 - Портфоліо: фото лежать у `images/portfolio/`, додавати **тільки через skill `add-portfolio-item`** (`.claude/skills/`) — він стискає фото й вставляє картку за шаблоном. Поки справжніх фото немає, там смугасті заглушки. Форма заявки нічого не надсилає (лише показує «Дякуємо»), бекенду немає.
 
