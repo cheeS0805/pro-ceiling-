@@ -554,3 +554,74 @@ input, textarea, button { font-family: inherit; }
   position: fixed; top: 16px; right: 16px; width: 52px; height: 52px; border-radius: 50%;
   border: 1px solid #3a3f4a; background: #161920; color: #fff; font-size: 26px; cursor: pointer;
 }
+
+/* ==========================================================================
+   Виділення при наведенні (hover).
+   Тільки для пристроїв з мишкою: на телефоні hover «залипає» після дотику.
+   ========================================================================== */
+
+/* Плавність для елементів, у яких її ще не було */
+.logo__sq1, .logo__sq2, .burger, .btn-header-mobile, .pill, .stepper__btn, .chip, .step__num,
+.faq-item__q, .faq-item__icon, .work, .ba__handle, .call-link, .call-btn, .mobile-nav a,
+.mobile-menu__close, .mobile-menu__cta, .lightbox__nav, .lightbox__close, .input, .footer-cta, .step {
+  transition: transform .25s, box-shadow .25s, background .25s, color .25s, border-color .25s, padding .25s;
+}
+.main-nav a {
+  background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 0 2px no-repeat;
+  transition: color .25s, background-size .3s;
+}
+
+@media (hover: hover) {
+  /* Логотип: квадрати трохи розходяться */
+  .logo:hover .logo__sq1 { transform: translate(3px, -3px); }
+  .logo:hover .logo__sq2 { transform: translate(-2px, 2px); }
+
+  /* Меню в шапці: жовте підкреслення виїжджає зліва */
+  .main-nav a:hover { background-size: 100% 2px; }
+
+  /* Шапка на мобільному */
+  .btn-header-mobile:hover { color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+  .burger:hover { border-color: var(--yellow); background: #1d212a; }
+
+  /* Перемикачі фактур і типів стелі */
+  .pill:not(.is-active):hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(63, 99, 201, 0.15); }
+
+  /* Калькулятор: − та + */
+  .stepper__btn:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(21, 23, 28, 0.15); }
+  .stepper__btn--plus:hover { background: var(--blue-hover); }
+
+  /* Плашки «Що входить у ціну» */
+  .chip:hover { background: rgba(255, 255, 255, 0.22); transform: translateY(-2px); }
+  .chip--todo:hover { background: rgba(255, 255, 255, 0.08); }
+
+  /* Кроки «Як ми працюємо» */
+  .step:hover { transform: translateY(-4px); }
+  .step:hover .step__num { transform: scale(1.1); box-shadow: 0 10px 24px rgba(63, 99, 201, 0.35); }
+  .step--final:hover .step__num { box-shadow: 0 10px 24px rgba(242, 212, 28, 0.45); }
+
+  /* Портфоліо */
+  .ba:hover .ba__handle { transform: scale(1.12); }
+  .work:hover { border-color: var(--yellow); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); }
+
+  /* FAQ */
+  .faq-item__q:hover { color: var(--blue); }
+  .faq-item:not(.is-open) .faq-item__q:hover .faq-item__icon { background: #eaeefb; color: var(--blue); }
+
+  /* Форма: поле підсвічується ще до кліку */
+  .input:hover:not(:focus) { border-color: #c9c4bb; background: #fff; }
+
+  /* Підвал */
+  .footer-cta:hover { color: var(--yellow); padding-left: 4px; }
+
+  /* Плаваюча кнопка дзвінка */
+  .call-link:hover { color: var(--ink); background: var(--yellow); }
+  .call-btn:hover { transform: scale(1.06); }
+
+  /* Мобільне меню */
+  .mobile-nav a:hover { padding-left: 10px; }
+  .mobile-menu__close:hover, .lightbox__close:hover { border-color: var(--yellow); color: var(--yellow); }
+  .mobile-menu__cta:hover { color: var(--ink); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+
+  /* Лайтбокс: стрілки */
+  .lightbox__nav:hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+}
