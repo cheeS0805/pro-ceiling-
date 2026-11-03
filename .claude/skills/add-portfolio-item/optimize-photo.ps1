@@ -51,9 +51,21 @@ try {
     $params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality), ([long]$Quality)
     $bmp.Save($dst, $codec, $params)
   } finally { $bmp.Dispose() }
+  $isJpeg = $img.RawFormat.Guid -eq [System.Drawing.Imaging.ImageFormat]::Jpeg.Guid
 } finally { $img.Dispose() }
+
+# Оригінал уже маленький JPEG, а перестиснутий вийшов більшим — беремо оригінал як є
+# (браузер сам повертає JPEG за EXIF, тож поворот не загубиться).
+$kept = $false
+if ($isJpeg -and $scale -eq 1.0 -and (Get-Item -LiteralPath $dst).Length -gt (Get-Item -LiteralPath $src).Length) {
+  Copy-Item -LiteralPath $src -Destination $dst -Force
+  $kept = $true
+}
 
 $before = [Math]::Round((Get-Item -LiteralPath $src).Length / 1KB)
 $after = [Math]::Round((Get-Item -LiteralPath $dst).Length / 1KB)
 Write-Output "OK: $dst"
-Write-Output "Розмір: ${w}x${h}px, $before КБ → $after КБ"
+Write-Output "Розмір: ${w}x${h}px, $before КБ → $after КБ$(if ($kept) { ' (оригінал уже менший — скопійовано без змін)' })"
+if ([Math]::Max($w, $h) -lt 1200) {
+  Write-Output "УВАГА: фото маленьке (довша сторона $([Math]::Max($w, $h))px < 1200px) — у лайтбоксі буде розмите. Краще попросити оригінал, а не фото з месенджера."
+}
