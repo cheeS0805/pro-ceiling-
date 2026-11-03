@@ -33,8 +33,7 @@ Claude Code in Action…»).
 
 - Дизайн зроблено в Claude Design, експорт «Архів проєкту».
 - `index.html` — сторінка. Стилі пишемо в `src/scss/` (SCSS), логіку в `src/script.ts` (TypeScript). `npm run build` збирає з них `styles.css` і `script.js` у корені — **ці два файли руками не редагувати**. Локально: `npm run serve` (= `py -m http.server 8000`).
-- Дизайн-версії v1–v3 (`.dc.html`) і `support.js` видалено — вони є в історії Git (dde4677).
-- `uploads/` — скриншот Instagram-сторінки \_proceiling.
+- Дизайн-версії v1–v3 (`.dc.html`) і `support.js` видалено — вони є в історії Git (4cd97d6).
 - Стиль: темний фон `#0e1014`, жовтий `#f2d41c`, синій `#3f63c9`, шрифт Onest.
 - Реальні дані: Черкаси та Сміла, Instagram @\_proceiling, телефони Максима та Іллі.
   Решта (ціни, email, адреса, фото робіт) — заглушки. **Не вигадувати** відгуків, років досвіду, кількості об'єктів.
@@ -57,13 +56,13 @@ Claude Code in Action…»).
 ## Прогрес
 
 - [x] Дизайн у Claude Design, архів розпаковано
-- [x] 1. Git + перший коміт (dde4677)
+- [x] 1. Git + перший коміт (4cd97d6)
 - [x] 2. Plan mode: v3 → звичайний HTML + CSS + JS (+ виправлено смугу на мобільному, + hover-ефекти)
 - [x] Додатково: TypeScript (`src/script.ts`) і SCSS (`src/scss/`), збірка `npm run build`
-- [x] 3. /init → CLAUDE.md проєкту (5207731) + особистий ~/.claude/CLAUDE.md
-- [x] Додатково: токени дизайну в `src/scss/_tokens.scss` (1b3a1f2)
-- [ ] 4. Skill «add-portfolio-item» — готовий і протестований (a15676d, 35c2dd9); ✅ після першого справжнього фото від Макса
-- [x] 5. Skill «verify-site»: `npm run verify` / `verify:quick` (3cb1e66)
+- [x] 3. /init → CLAUDE.md проєкту (32bee20) + особистий ~/.claude/CLAUDE.md
+- [x] Додатково: токени дизайну в `src/scss/_tokens.scss` (764c7cc)
+- [ ] 4. Skill «add-portfolio-item» — готовий і протестований (6e99625, ec8e5e0); ✅ після першого справжнього фото від Макса
+- [x] 5. Skill «verify-site»: `npm run verify` / `verify:quick` (09751e3)
 - [x] 6. Hook PostToolUse: `.claude/settings.json` → `.claude/hooks/after-edit.mjs` (збірка + verify:quick, exit 2 при ❌)
 - [x] 7. Hook PreToolUse: `.claude/hooks/before-edit.mjs` — заборона чужих номерів, правок `contacts.json` і згенерованих файлів
 - [x] 8. Субагент `site-reviewer` (`.claude/agents/`) + правки за його звітом: SEO, тексти, доступність, мобільний вигляд
