@@ -1,0 +1,71 @@
+@use 'mixins' as *;
+
+// ---------- Часті питання ----------
+.faq {
+  background: #fff;
+  border-top: 1px solid #ebe8e2;
+
+  .container { max-width: 920px; }
+  .h2 { margin-bottom: 40px; }
+}
+
+.faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--line-light); }
+
+.faq-item {
+  border-bottom: 1px solid var(--line-light);
+
+  &__q {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+    font-size: clamp(17px, 1.8vw, 21px);
+    font-weight: 500;
+    color: var(--ink);
+    min-height: 44px;
+    @include smooth;
+    @include hover { color: var(--blue); }
+  }
+
+  &__icon {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f2f0ec;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: transform .3s, background .3s, color .3s;
+  }
+
+  &__a {
+    display: none;
+    margin: 0;
+    padding: 0 56px 26px 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  // Закрите питання: «+» підсвічується при наведенні
+  &:not(.is-open) &__q {
+    @include hover {
+      .faq-item__icon { background: #eaeefb; color: var(--blue); }
+    }
+  }
+
+  // Відкрите питання: «+» синій і повернутий на 45° (стає «×»)
+  &.is-open {
+    .faq-item__icon { background: var(--blue); color: #fff; transform: rotate(45deg); }
+    .faq-item__a { display: block; }
+  }
+}

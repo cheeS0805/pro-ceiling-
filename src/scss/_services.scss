@@ -1,0 +1,102 @@
+@use 'mixins' as *;
+
+// ---------- Послуги ----------
+.services { background: var(--cream); }
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px 40px;
+  margin-bottom: 48px;
+}
+
+.section-sub { margin: 0; font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 28em; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 200px;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+  @include hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(63, 99, 201, 0.16); border-color: var(--blue); }
+
+  h3 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
+  p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+
+  &__num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #eaeefb;
+    color: var(--blue);
+    font-family: var(--mono);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Остання, синя картка
+  &--accent {
+    background: var(--blue);
+    color: #fff;
+    border-color: var(--blue);
+    transition: transform .35s, box-shadow .35s;
+    @include hover { box-shadow: 0 20px 44px rgba(63, 99, 201, 0.4); }
+
+    p { color: #dfe5f7; }
+    .service-card__num { background: var(--yellow); color: var(--ink); }
+  }
+}
+
+// ---------- Зразки фактур ----------
+.texture-panel {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 28px 48px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 24px;
+  padding: clamp(20px, 3vw, 40px);
+
+  &__copy { display: flex; flex-direction: column; gap: 18px; }
+
+  h3 { margin: 0; font-size: clamp(26px, 3vw, 36px); font-weight: 600; letter-spacing: -0.02em; }
+}
+
+.kicker { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; }
+
+.texture-desc { margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted); min-height: 4.8em; }
+
+.texture-preview {
+  position: relative;
+  aspect-ratio: 16/10;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line-light);
+  background: linear-gradient(180deg, #f3f2ef, #e8e6e2);
+  transition: background .6s;
+
+  .tag { color: var(--muted); background: rgba(255, 255, 255, 0.85); }
+}
+
+.texture-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0) 48%, transparent 62%);
+  transition: opacity .6s;
+}

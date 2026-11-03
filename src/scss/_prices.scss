@@ -1,0 +1,113 @@
+@use 'mixins' as *;
+
+// ---------- Ціни ----------
+.prices {
+  position: relative;
+  overflow: hidden;
+  background: var(--blue);
+  color: #fff;
+
+  // Жовта рамка-декор у куті
+  &__deco {
+    position: absolute;
+    right: -120px;
+    top: -120px;
+    width: 360px;
+    height: 360px;
+    border: 3px solid rgba(242, 212, 28, 0.6);
+    border-radius: 24px;
+    transform: rotate(12deg);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 40px 64px;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    p { margin: 0; font-size: 17px; line-height: 1.55; color: #dfe5f7; max-width: 24em; }
+  }
+}
+
+.btn-prices {
+  align-self: flex-start;
+  background: var(--yellow);
+  color: var(--ink);
+  @include pill-button(14px, 24px, 16px, 48px);
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: transform .25s, box-shadow .25s;
+  @include hover { color: var(--ink); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(14, 16, 20, 0.3); }
+}
+
+.price-table {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(16px, 1.6vw, 19px);
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #dfe5f7;
+  }
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 18px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  transition: background .25s, padding .25s;
+  @include hover { background: rgba(255, 255, 255, 0.1); padding-left: 22px; }
+
+  span:first-child { font-weight: 500; }
+}
+
+// «Що входить у ціну»
+.included {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 36px;
+
+  h3 { margin: 0; font-size: 24px; font-weight: 600; }
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 16px;
+  @include smooth;
+  @include hover { background: rgba(255, 255, 255, 0.22); transform: translateY(-2px); }
+
+  // Плашка-заглушка з пунктирною рамкою
+  &--todo {
+    background: none;
+    border: 1px dashed rgba(255, 255, 255, 0.5);
+    @include hover { background: rgba(255, 255, 255, 0.08); }
+  }
+}

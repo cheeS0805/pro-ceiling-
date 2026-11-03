@@ -1,0 +1,19 @@
+{
+  // Налаштування компілятора TypeScript.
+  // src/script.ts → script.js у корені (його підключає index.html).
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "rootDir": "src",
+    "outDir": ".",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": true,
+    "removeComments": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

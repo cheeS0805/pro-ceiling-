@@ -1,0 +1,48 @@
+@use 'mixins' as *;
+
+// ---------- Підвал ----------
+.site-footer {
+  background: var(--bg-footer);
+  color: var(--text-light);
+  border-top: 1px solid #1e2129;
+}
+
+.footer-inner {
+  @include wrap;
+  padding: clamp(48px, 6vw, 80px) var(--pad-x) 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 36px 40px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  p { margin: 0; font-size: 15px; line-height: 1.55; color: #a3a9b6; }
+}
+
+.footer-col { display: flex; flex-direction: column; gap: 10px; font-size: 16px; }
+.footer-title { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); }
+.footer-phone { font-weight: 600; font-size: 19px; }
+.footer-muted { color: #a3a9b6; }
+
+.footer-cta {
+  color: #7d9bf0;
+  font-weight: 500;
+  @include smooth;
+  @include hover { color: var(--yellow); padding-left: 4px; }
+}
+
+.footer-bottom {
+  @include wrap;
+  padding: 20px var(--pad-x) 32px;
+  border-top: 1px solid #1e2129;
+  font-size: 13px;
+  color: #8a909c;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}

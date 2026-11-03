@@ -1,0 +1,21 @@
+// PRO CEILING — головний файл стилів.
+// Збирає всі частини (partials) в один styles.css у корені проєкту.
+// Після змін запусти `npm run build` (або `npm run watch`).
+//
+// Порядок важливий: спершу змінні й база, потім секції зверху вниз, як на сторінці.
+
+@use 'variables';
+@use 'base';
+
+@use 'header';
+@use 'hero';
+@use 'services';
+@use 'prices';
+@use 'calc';
+@use 'process';
+@use 'portfolio';
+@use 'why';
+@use 'faq';
+@use 'request';
+@use 'footer';
+@use 'overlays';

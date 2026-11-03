@@ -1,0 +1,114 @@
+@use 'mixins' as *;
+
+// ---------- Форма заявки ----------
+.request {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 10% 100%, rgba(63, 99, 201, 0.4), transparent 55%), #14171d;
+  color: var(--text-light);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+    gap: 40px 64px;
+    align-items: start;
+  }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .h2 { text-wrap: balance; color: #fff; }
+    p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--muted-dark); max-width: 26em; }
+  }
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 22px;
+  padding: clamp(20px, 3vw, 36px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.field { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--muted); }
+
+.input {
+  height: 54px;
+  border: 1.5px solid #e1ddd6;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 17px;
+  background: #f7f6f3;
+  color: var(--ink);
+  outline: none;
+  @include smooth;
+
+  &--area { height: auto; padding: 14px 16px; resize: vertical; }
+
+  // Поле підсвічується ще до кліку
+  &:not(:focus) {
+    @include hover { border-color: #c9c4bb; background: #fff; }
+  }
+
+  &:focus { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(63, 99, 201, 0.15); }
+}
+
+.btn-submit {
+  height: 58px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: transform .25s, box-shadow .25s, background .25s;
+  @include hover { background: var(--blue-hover); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(63, 99, 201, 0.45); }
+}
+
+.form-note { margin: 0; font-size: 13px; color: #6b707a; line-height: 1.5; }
+
+// Повідомлення «Дякуємо, заявку отримано»
+.thanks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 22px;
+  padding: clamp(24px, 3vw, 40px);
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  h3 { margin: 0; font-size: 26px; font-weight: 600; }
+  p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted); }
+}
+
+.btn-reset {
+  align-self: flex-start;
+  border: 1.5px solid #d6d2cb;
+  background: transparent;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  min-height: 44px;
+  transition: border-color .2s;
+  @include hover { border-color: var(--blue); }
+}

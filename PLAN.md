@@ -29,7 +29,7 @@ Claude Code in Action…»).
 
 ## Що вже є
 - Дизайн зроблено в Claude Design, експорт «Архів проєкту».
-- `index.html` + `styles.css` + `script.js` — сайт у звичайному HTML/CSS/JS (крок 2). Відкривається навіть подвійним кліком; локально: `py -m http.server 8000`.
+- `index.html` — сторінка. Стилі пишемо в `src/scss/` (SCSS), логіку в `src/script.ts` (TypeScript). `npm run build` збирає з них `styles.css` і `script.js` у корені — **ці два файли руками не редагувати**. Локально: `npm run serve` (= `py -m http.server 8000`).
 - Дизайн-версії v1–v3 (`.dc.html`) і `support.js` видалено — вони є в історії Git (dde4677).
 - `uploads/` — скриншот Instagram-сторінки _proceiling.
 - Стиль: темний фон `#0e1014`, жовтий `#f2d41c`, синій `#3f63c9`, шрифт Onest.
@@ -54,5 +54,5 @@ Claude Code in Action…»).
 - [x] Дизайн у Claude Design, архів розпаковано
 - [x] 1. Git + перший коміт (dde4677)
 - [x] 2. Plan mode: v3 → звичайний HTML + CSS + JS (+ виправлено смугу на мобільному, + hover-ефекти)
-- [ ] TypeScript (додатковий крок за бажанням користувачки)
+- [x] Додатково: TypeScript (`src/script.ts`) і SCSS (`src/scss/`), збірка `npm run build`
 - [ ] 3. /init → CLAUDE.md

@@ -1,0 +1,87 @@
+@use 'mixins' as *;
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Onest', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+a { color: inherit; text-decoration: none; transition: color .25s; }
+
+// :where() робить це правило найслабшим, тож кнопки-посилання зі своїм кольором
+// не жовтіють при наведенні (як у дизайні).
+:where(a:hover) { color: var(--yellow); }
+
+input, textarea, button { font-family: inherit; }
+
+[hidden] { display: none !important; }
+
+// ---------- Загальні блоки ----------
+.container {
+  @include wrap;
+  padding: var(--pad-section) var(--pad-x);
+}
+
+.h2 {
+  margin: 0;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+
+  &--spaced { margin-bottom: 48px; }
+}
+
+.accent { color: var(--yellow); }
+
+.square { width: 8px; height: 8px; background: var(--yellow); display: block; flex: none; }
+
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+// Підписи-заглушки моноширинним шрифтом («Фото роботи» тощо)
+.tag {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 5px 9px;
+  border-radius: 6px;
+
+  &--dark { color: #cfd4dd; background: var(--bg); }
+  &--bl { position: absolute; left: 16px; bottom: 16px; }
+  &--br { position: absolute; right: 16px; bottom: 16px; }
+}
+
+// Кнопки-перемикачі (фактури, типи стелі)
+.pill-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.pill {
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid #e1ddd6;
+  background: #fff;
+  color: var(--ink);
+  @include smooth;
+
+  &--square { padding: 10px 16px; border-radius: 12px; }
+
+  &.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  &:not(.is-active) {
+    @include hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(63, 99, 201, 0.15);
+    }
+  }
+}

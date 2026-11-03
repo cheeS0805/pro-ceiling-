@@ -4,3 +4,6 @@ desktop.ini
 
 # Службові файли macOS
 .DS_Store
+
+# Залежності npm (встановлюються командою npm install)
+node_modules/

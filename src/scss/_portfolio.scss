@@ -1,0 +1,156 @@
+@use 'mixins' as *;
+
+// ---------- Портфоліо ----------
+.portfolio {
+  background: var(--bg);
+  color: var(--text-light);
+
+  .h2 { color: #fff; }
+}
+
+// До / після
+.ba {
+  position: relative;
+  aspect-ratio: 16/8;
+  min-height: 260px;
+  // Щоб min-height + aspect-ratio не розтягували блок ширше за екран телефона
+  max-width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #262a33;
+  margin-bottom: 16px;
+  user-select: none;
+
+  &__after { position: absolute; inset: 0; background: var(--stripes); }
+
+  &__before {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(135deg, #353a44 0 12px, #3c414c 12px 24px);
+    clip-path: inset(0 50% 0 0);
+  }
+
+  &__tag-after { color: var(--ink); background: var(--yellow); }
+  &__tag-before { color: var(--text-light); background: var(--bg); }
+
+  &__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    margin-left: -1.5px;
+    background: var(--yellow);
+    pointer-events: none;
+  }
+
+  &__handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    @include smooth;
+  }
+
+  // Невидимий повзунок поверх усього блоку
+  &__range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: ew-resize;
+    margin: 0;
+  }
+
+  @include hover {
+    .ba__handle { transform: scale(1.12); }
+  }
+}
+
+// Сітка робіт
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+
+.work {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #262a33;
+  padding: 0;
+  background: #1b1f27;
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+  @include smooth;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: var(--stripes);
+    transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+  }
+
+  .tag { pointer-events: none; }
+
+  @include hover {
+    border-color: var(--yellow);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+
+    .work__bg { transform: scale(1.06); }
+  }
+}
+
+// Блок «Хочете таку стелю у себе?»
+.cta-box {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid #2c313b;
+  border-radius: 24px;
+  padding: clamp(24px, 3vw, 40px);
+  background: linear-gradient(120deg, #161a22, #1b2236);
+
+  &__copy { display: flex; flex-direction: column; gap: 8px; max-width: 36em; }
+
+  h3 { margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.02em; color: #fff; }
+  p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted-dark); }
+}
+
+.btn-cta {
+  @include pill-button(16px, 26px, 16px, 52px);
+
+  &--yellow {
+    background: var(--yellow);
+    color: var(--ink);
+    font-weight: 600;
+    transition: transform .25s;
+    @include hover { color: var(--ink); transform: translateY(-2px); }
+  }
+
+  &--outline {
+    border: 1px solid #3a3f4a;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: border-color .25s;
+    @include hover { border-color: var(--yellow); }
+  }
+}

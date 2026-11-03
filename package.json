@@ -1,0 +1,17 @@
+{
+  "name": "pro-ceiling",
+  "private": true,
+  "description": "Лендинг PRO CEILING — натяжні стелі Черкаси та Сміла",
+  "scripts": {
+    "build": "npm run build:css && npm run build:ts",
+    "build:css": "sass src/scss/styles.scss styles.css --no-source-map",
+    "build:ts": "tsc",
+    "watch:css": "sass --watch src/scss/styles.scss styles.css --no-source-map",
+    "watch:ts": "tsc --watch",
+    "serve": "py -m http.server 8000"
+  },
+  "devDependencies": {
+    "sass": "1.107.1",
+    "typescript": "7.0.2"
+  }
+}

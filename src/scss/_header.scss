@@ -1,0 +1,153 @@
+@use 'mixins' as *;
+
+// ---------- Логотип ----------
+.logo {
+  --logo-bg: var(--bg);
+  position: relative;
+  width: 84px;
+  height: 54px;
+  display: block;
+  flex: none;
+
+  &--footer { --logo-bg: var(--bg-footer); }
+
+  &__sq1, &__sq2 {
+    position: absolute;
+    width: 48px;
+    height: 46px;
+    display: block;
+    @include smooth;
+  }
+  &__sq1 { left: 30px; top: 0; border: 2.5px solid var(--yellow); }
+  &__sq2 { left: 22px; top: 7px; border: 2.5px solid var(--blue-light); background: var(--logo-bg); }
+
+  &__text {
+    position: absolute;
+    left: 0;
+    top: 13px;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.95;
+    color: #fff;
+    font-weight: 500;
+  }
+  &__pro { font-size: 23px; letter-spacing: 0.02em; background: var(--logo-bg); padding-right: 2px; }
+  &__ceiling { font-size: 11.5px; letter-spacing: 0.04em; background: var(--logo-bg); padding-right: 2px; }
+
+  // Квадрати трохи розходяться
+  @include hover {
+    .logo__sq1 { transform: translate(3px, -3px); }
+    .logo__sq2 { transform: translate(-2px, 2px); }
+  }
+}
+
+// ---------- Шапка ----------
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(14, 16, 20, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #22262e;
+  color: var(--text-light);
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.header-inner {
+  @include wrap;
+  padding: 12px var(--pad-x);
+  display: flex;
+  align-items: center;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+}
+
+.main-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+  color: #a3a9b6;
+  order: 3;
+  flex-basis: 100%;
+  white-space: nowrap;
+  flex-wrap: wrap;
+
+  // Жовте підкреслення виїжджає зліва при наведенні
+  a {
+    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 0 2px no-repeat;
+    transition: color .25s, background-size .3s;
+    @include hover { background-size: 100% 2px; }
+  }
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-phone { font-weight: 600; font-size: 16px; white-space: nowrap; }
+
+.btn-header {
+  background: var(--yellow);
+  color: var(--ink);
+  @include pill-button(12px, 20px, 15px, 44px);
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: transform .25s, box-shadow .25s;
+  @include hover { color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+}
+
+// ---------- Шапка на мобільному ----------
+.header-mobile { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+
+.btn-header-mobile {
+  background: var(--yellow);
+  color: var(--ink);
+  @include pill-button(10px, 16px, 14px, 44px);
+  font-weight: 600;
+  @include smooth;
+  @include hover { color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242, 212, 28, 0.35); }
+}
+
+.burger {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid #2c313b;
+  background: #161920;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0;
+  @include smooth;
+  @include hover { border-color: var(--yellow); background: #1d212a; }
+
+  span { width: 20px; height: 2px; background: #fff; display: block; border-radius: 2px; }
+  span:last-child { width: 14px; background: var(--yellow); margin-left: 6px; }
+}
+
+// ---------- Мобільна / десктопна версія ----------
+@include mobile {
+  .main-nav, .header-actions { display: none; }
+}
+@include desktop {
+  .header-mobile, .call-float, .mobile-menu { display: none !important; }
+}

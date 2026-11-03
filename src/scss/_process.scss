@@ -1,0 +1,53 @@
+@use 'mixins' as *;
+
+// ---------- Як ми працюємо ----------
+.process { background: var(--cream); }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 32px 24px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 3px solid var(--blue);
+  padding-top: 22px;
+  @include smooth;
+
+  h3 { margin: 0; font-size: 21px; font-weight: 600; }
+  p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+  &__num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include smooth;
+  }
+
+  @include hover {
+    transform: translateY(-4px);
+
+    .step__num { transform: scale(1.1); box-shadow: 0 10px 24px rgba(63, 99, 201, 0.35); }
+  }
+
+  // Останній крок «Гарантія» — жовтий
+  &--final {
+    border-top-color: var(--yellow);
+
+    .step__num { background: var(--yellow); color: var(--ink); }
+
+    @include hover {
+      .step__num { box-shadow: 0 10px 24px rgba(242, 212, 28, 0.45); }
+    }
+  }
+}
