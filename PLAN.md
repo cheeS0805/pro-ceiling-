@@ -11,9 +11,25 @@ CLAUDE.md, skills, hooks, субагентів, MCP, плагіни — на с�
 На кожному кроці казати, **що** робимо, **навіщо** і **з якого уроку курсу** це. Частину дій
 давати робити їй самій (Shift+Tab, /init, /agents, /hooks), підказуючи.
 
+## Посібник: конспекти всіх курсів
+**«Зошит з Claude»** — https://claude.ai/artifact/2pyh1dJJEGFiJyQ7Zk1Tpp
+
+Це сайт-артефакт з конспектами всіх 6 курсів, які пройшла користувачка: головна думка кожного
+уроку, терміни англійською з поясненням, приклади, «Перевір себе». Там саме ті формулювання й
+приклади, на яких вона вчилася, — посилайся на них, коли пояснюєш («як в уроці 2.4 Hooks курсу
+Claude Code in Action…»).
+
+- Читати його інструментом **Artifact** (`action: "read"`, `url` вище), не WebFetch.
+- Вкладки курсів: Claude 101 · Claude Cowork · Claude Code 101 · Agent Skills · Subagents ·
+  Claude Code in Action. У кожної свій «Словник курсу».
+- Особливо корисні: **★ Шпаргалка «Що є що»** в Claude Code 101 (CLAUDE.md vs skills vs
+  субагенти vs MCP vs hooks, аналогія зі школою) та підсумкова сторінка Claude Code in Action.
+- Позначення уроків у кроках нижче: CC101 = Claude Code 101, In Action = Claude Code in Action.
+- Сайт не редагувати без її прохання (це окремий проєкт).
+
 ## Що вже є
 - Дизайн зроблено в Claude Design, експорт «Архів проєкту».
-- `PRO CEILING Landing v3.dc.html` — остання версія (v1, v2 — попередні).
+- `PRO CEILING Landing v3.dc.html` — єдина версія сайту (v1 і v2 видалено, вони є в першому коміті dde4677).
 - `support.js` — рантайм Claude Design (теги `x-dc`, `helmet`); без нього `.dc.html` не працює.
 - `uploads/` — скриншот Instagram-сторінки _proceiling.
 - Стиль: темний фон `#0e1014`, жовтий `#f2d41c`, синій `#3f63c9`, шрифт Onest.
@@ -36,4 +52,5 @@ CLAUDE.md, skills, hooks, субагентів, MCP, плагіни — на с�
 
 ## Прогрес
 - [x] Дизайн у Claude Design, архів розпаковано
-- [ ] 1. Git + перший коміт
+- [x] 1. Git + перший коміт (dde4677)
+- [ ] 2. Plan mode: v3 → звичайний HTML + CSS
