@@ -55,4 +55,6 @@ Claude Code in Action…»).
 - [x] 1. Git + перший коміт (dde4677)
 - [x] 2. Plan mode: v3 → звичайний HTML + CSS + JS (+ виправлено смугу на мобільному, + hover-ефекти)
 - [x] Додатково: TypeScript (`src/script.ts`) і SCSS (`src/scss/`), збірка `npm run build`
-- [ ] 3. /init → CLAUDE.md
+- [x] 3. /init → CLAUDE.md проєкту (5207731) + особистий ~/.claude/CLAUDE.md
+- [x] Додатково: токени дизайну в `src/scss/_tokens.scss` (1b3a1f2)
+- [ ] 4. Skill «add-portfolio-item»
