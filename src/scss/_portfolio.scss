@@ -111,13 +111,24 @@ $cta-gradient: linear-gradient(120deg, #161a22, #1b2236);
     transition: transform $t-very-slow $ease-out-smooth;
   }
 
+  // Справжнє фото роботи: заповнює картку, зайве обрізається по краях
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform $t-very-slow $ease-out-smooth;
+  }
+
   .tag { pointer-events: none; }
 
   @include hover {
     border-color: $yellow;
     box-shadow: 0 16px 40px rgba($black, 0.45);
 
-    .work__bg { transform: scale(1.06); }
+    .work__bg, .work__img { transform: scale(1.06); }
   }
 }
 

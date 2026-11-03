@@ -230,14 +230,17 @@
         <input type="range" class="ba__range" id="ba-range" min="0" max="100" value="50" aria-label="До / після">
       </div>
 
-      <!-- Роботи (клік відкриває лайтбокс) -->
+      <!-- Роботи (клік відкриває лайтбокс). Додавати через skill add-portfolio-item.
+           Справжня робота:  <button type="button" class="work" data-work data-reveal><img class="work__img" src="images/portfolio/….jpg" alt="…" loading="lazy"></button>
+           Заглушка:         кнопка з <div class="work__bg"> і підписом «Фото роботи» -->
+
       <div class="works-grid">
-        <button type="button" class="work" data-work="0" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
-        <button type="button" class="work" data-work="1" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
-        <button type="button" class="work" data-work="2" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
-        <button type="button" class="work" data-work="3" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
-        <button type="button" class="work" data-work="4" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
-        <button type="button" class="work" data-work="5" data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
+        <button type="button" class="work" data-work data-reveal><div class="work__bg"></div><span class="tag tag--dark tag--bl">Фото роботи</span></button>
       </div>
 
       <div class="cta-box" data-reveal>
@@ -399,7 +402,8 @@
 <!-- Лайтбокс портфоліо -->
 <div class="lightbox" id="lightbox" hidden>
   <div class="lightbox__stage" id="lightbox-stage">
-    <span class="lightbox__label">Фото роботи <span id="lightbox-n">1</span> / 6</span>
+    <img class="lightbox__img" id="lightbox-img" alt="" hidden>
+    <span class="lightbox__label" id="lightbox-label">Фото роботи 1 / 6</span>
     <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Попереднє">←</button>
     <button type="button" class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Наступне">→</button>
   </div>

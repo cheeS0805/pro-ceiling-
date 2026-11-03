@@ -19,7 +19,6 @@ const TEXTURES = [
     { id: 'gloss', label: 'Глянець', shine: 0.95, bg: 'linear-gradient(160deg,#e9ecf1 0%,#c9ced8 38%,#f7f8fa 52%,#bfc5d0 66%,#e6e9ee 100%)', desc: 'Дзеркальний ефект відбиває світло й меблі, кімната здається вищою. Гарно виглядає в невеликих приміщеннях.' },
     { id: 'satin', label: 'Сатин', shine: 0.45, bg: 'linear-gradient(165deg,#f1eee8,#e3ded5 45%,#f3f0ea 58%,#ddd8ce)', desc: 'М\'який перламутровий відблиск без дзеркальності. Поверхня ніби тканинна, змінює відтінок залежно від освітлення.' },
 ];
-const WORKS_COUNT = 6;
 const MOBILE_QUERY = window.matchMedia('(max-width: 899.98px)');
 // ---------- Помічники ----------
 /** Знаходить один елемент. Якщо його немає в HTML — одразу зрозуміла помилка в консолі. */
@@ -144,22 +143,39 @@ function initBeforeAfter() {
     update();
 }
 // ---------- Лайтбокс портфоліо ----------
-/** Номер відкритої роботи (0–5) або null, якщо лайтбокс закритий */
+// Кількість робіт не задана в коді: скрипт рахує кнопки [data-work] в index.html.
+// Справжня робота містить <img class="work__img">, заглушка — ні.
+/** Усі картки портфоліо в порядку, як на сторінці */
+let works = [];
+/** Номер відкритої роботи (з нуля) або null, якщо лайтбокс закритий */
 let lb = null;
 function setLightbox(i) {
     lb = i;
     $('#lightbox').hidden = i === null;
-    if (i !== null)
-        $('#lightbox-n').textContent = String(i + 1);
+    if (i === null)
+        return;
+    const photo = works[i]?.querySelector('.work__img');
+    const big = $('#lightbox-img');
+    big.hidden = !photo;
+    if (photo) {
+        big.src = photo.currentSrc || photo.src;
+        big.alt = photo.alt;
+    }
+    else {
+        big.removeAttribute('src');
+    }
+    const caption = photo ? `${photo.alt} ·` : 'Фото роботи';
+    $('#lightbox-label').textContent = `${caption} ${i + 1} / ${works.length}`;
 }
 /** Крок по колу: +1 — наступна робота, -1 — попередня */
 function stepLightbox(delta) {
-    if (lb === null)
+    if (lb === null || works.length === 0)
         return;
-    setLightbox((lb + delta + WORKS_COUNT) % WORKS_COUNT);
+    setLightbox((lb + delta + works.length) % works.length);
 }
 function initLightbox() {
-    $$('[data-work]').forEach((b) => b.addEventListener('click', () => setLightbox(Number(b.dataset.work))));
+    works = Array.from($$('[data-work]'));
+    works.forEach((b, i) => b.addEventListener('click', () => setLightbox(i)));
     $('#lightbox').addEventListener('click', () => setLightbox(null));
     $('#lightbox-stage').addEventListener('click', (e) => e.stopPropagation());
     $('#lightbox-prev').addEventListener('click', () => stepLightbox(-1));

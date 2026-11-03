@@ -48,7 +48,6 @@ const TEXTURES: readonly Texture[] = [
   { id: 'satin', label: 'Сатин', shine: 0.45, bg: 'linear-gradient(165deg,#f1eee8,#e3ded5 45%,#f3f0ea 58%,#ddd8ce)', desc: 'М\'який перламутровий відблиск без дзеркальності. Поверхня ніби тканинна, змінює відтінок залежно від освітлення.' },
 ];
 
-const WORKS_COUNT = 6;
 const MOBILE_QUERY = window.matchMedia('(max-width: 899.98px)');
 
 // ---------- Помічники ----------
@@ -185,24 +184,41 @@ function initBeforeAfter(): void {
 }
 
 // ---------- Лайтбокс портфоліо ----------
-/** Номер відкритої роботи (0–5) або null, якщо лайтбокс закритий */
+// Кількість робіт не задана в коді: скрипт рахує кнопки [data-work] в index.html.
+// Справжня робота містить <img class="work__img">, заглушка — ні.
+
+/** Усі картки портфоліо в порядку, як на сторінці */
+let works: HTMLButtonElement[] = [];
+/** Номер відкритої роботи (з нуля) або null, якщо лайтбокс закритий */
 let lb: number | null = null;
 
 function setLightbox(i: number | null): void {
   lb = i;
   $('#lightbox').hidden = i === null;
-  if (i !== null) $('#lightbox-n').textContent = String(i + 1);
+  if (i === null) return;
+
+  const photo = works[i]?.querySelector<HTMLImageElement>('.work__img');
+  const big = $<HTMLImageElement>('#lightbox-img');
+  big.hidden = !photo;
+  if (photo) {
+    big.src = photo.currentSrc || photo.src;
+    big.alt = photo.alt;
+  } else {
+    big.removeAttribute('src');
+  }
+  const caption = photo ? `${photo.alt} ·` : 'Фото роботи';
+  $('#lightbox-label').textContent = `${caption} ${i + 1} / ${works.length}`;
 }
 
 /** Крок по колу: +1 — наступна робота, -1 — попередня */
 function stepLightbox(delta: 1 | -1): void {
-  if (lb === null) return;
-  setLightbox((lb + delta + WORKS_COUNT) % WORKS_COUNT);
+  if (lb === null || works.length === 0) return;
+  setLightbox((lb + delta + works.length) % works.length);
 }
 
 function initLightbox(): void {
-  $$<HTMLButtonElement>('[data-work]').forEach((b) =>
-    b.addEventListener('click', () => setLightbox(Number(b.dataset.work))));
+  works = Array.from($$<HTMLButtonElement>('[data-work]'));
+  works.forEach((b, i) => b.addEventListener('click', () => setLightbox(i)));
   $('#lightbox').addEventListener('click', () => setLightbox(null));
   $('#lightbox-stage').addEventListener('click', (e) => e.stopPropagation());
   $<HTMLButtonElement>('#lightbox-prev').addEventListener('click', () => stepLightbox(-1));

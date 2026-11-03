@@ -135,6 +135,16 @@
     background: repeating-linear-gradient(135deg, $stripe-1 0 14px, $stripe-2 14px 28px); // ширші смуги
   }
 
+  // Справжнє фото у лайтбоксі: показуємо цілим, без обрізання
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: $bg;
+  }
+
   &__label {
     position: absolute;
     left: 20px;
