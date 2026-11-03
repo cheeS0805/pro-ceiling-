@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#faf8f5;color:#1f1c19;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1f1c19;text-decoration:none}
+a:hover{color:#3f63c9}
+input,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:10;background:rgba(250,248,245,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ebe6df">
+  <div style="max-width:1240px;margin:0 auto;padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;gap:16px 28px;flex-wrap:wrap">
+    <a href="#top" style="position:relative;width:84px;height:54px;display:block;flex:none" aria-label="PRO CEILING"><span style="position:absolute;left:30px;top:0;width:48px;height:46px;border:2.5px solid #f2d41c;display:block"></span><span style="position:absolute;left:22px;top:7px;width:48px;height:46px;border:2.5px solid #4b6fd1;background:#faf8f5;display:block"></span><span style="position:absolute;left:0;top:13px;display:flex;flex-direction:column;line-height:0.95;color:#1f1c19;font-weight:500"><span style="font-size:23px;letter-spacing:0.02em;background:#faf8f5;padding-right:2px">PRO</span><span style="font-size:11.5px;letter-spacing:0.04em;background:#faf8f5;padding-right:2px">CEILING</span></span></a>
+    <nav style="display:flex;gap:24px;font-size:15px;color:#5d564f;order:3;flex-basis:100%;overflow-x:auto;white-space:nowrap;padding-bottom:2px">
+      <a href="#services" style="color:#5d564f">Послуги</a>
+      <a href="#prices" style="color:#5d564f">Ціни</a>
+      <a href="#process" style="color:#5d564f">Як ми працюємо</a>
+      <a href="#portfolio" style="color:#5d564f">Портфоліо</a>
+      <a href="#why" style="color:#5d564f">Чому ми</a>
+      <a href="#contacts" style="color:#5d564f">Контакти</a>
+    </nav>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;justify-content:flex-end">
+      <a href="tel:" style="font-weight:600;font-size:16px">[телефон]</a>
+      <a href="#request" style="background:#3f63c9;color:#fff;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px;min-height:44px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0" style-hover="background:#2f4ea6;color:#fff">Безкоштовний замір</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section data-screen-label="Головний екран" style="max-width:1240px;margin:0 auto;padding:clamp(40px,8vw,96px) clamp(16px,4vw,40px) clamp(48px,8vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="font-size:14px;letter-spacing:0.12em;text-transform:uppercase;color:#3f63c9;font-weight:500">Натяжні стелі · [місто]</div>
+      <h1 style="margin:0;font-size:clamp(40px,6.4vw,84px);line-height:1.02;font-weight:600;letter-spacing:-0.035em;text-wrap:balance">Ідеально рівна стеля за&nbsp;1&nbsp;день</h1>
+      <p style="margin:0;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#5d564f;max-width:30em;text-wrap:pretty">Монтуємо натяжні стелі будь-якої складності: від класичних матових до ширяючих конструкцій з підсвіткою. Без пилу, без мокрих робіт, з гарантією.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#request" style="background:#1f1c19;color:#fff;padding:18px 30px;border-radius:999px;font-weight:500;font-size:17px;min-height:56px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0" style-hover="background:#3f63c9;color:#fff">Залишити заявку</a>
+        <a href="#prices" style="border:1px solid #d6cfc6;padding:18px 30px;border-radius:999px;font-weight:500;font-size:17px;min-height:56px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0" style-hover="border-color:#1f1c19">Дивитися ціни</a>
+      </div>
+    </div>
+    <div style="aspect-ratio:4/5;max-height:640px;width:100%;border-radius:20px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:6px 10px;border-radius:6px">Фото роботи · інтер'єр зі стелею</span>
+    </div>
+  </section>
+
+  <section id="services" data-screen-label="Послуги" style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(16px,4vw,40px);border-top:1px solid #ebe6df">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:48px">
+      <h2 style="margin:0;font-size:clamp(32px,4.4vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em">Послуги</h2>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#5d564f;max-width:28em">Підберемо фактуру й конструкцію під ваш інтер'єр та бюджет.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:1px;background:#e3ddd5;border:1px solid #e3ddd5;border-radius:16px;overflow:hidden">
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">01</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">Матові</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">Виглядають як ідеально пофарбована стеля. Без відблисків.</p></div>
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">02</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">Глянцеві</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">Віддзеркалюють світло і візуально збільшують висоту кімнати.</p></div>
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">03</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">Сатинові</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">М'який перламутровий блиск, середина між матом і глянцем.</p></div>
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">04</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">Двоярусні</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">Кілька рівнів для зонування простору та прихованого освітлення.</p></div>
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">05</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">З фотодруком</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">Будь-яке зображення на полотні: небо, візерунок, ваше фото.</p></div>
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">06</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">З підсвіткою</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">Світлові лінії, контурне та приховане LED-освітлення.</p></div>
+      <div style="background:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px" style-hover="background:#fff"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#3f63c9">07</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">«Ширяючі»</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#5d564f">Підсвітка по периметру створює ефект стелі, що ширяє в повітрі.</p></div>
+      <div style="background:#1f1c19;color:#faf8f5;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#f2d41c">08</span><h3 style="margin:0;font-size:21px;font-weight:600;letter-spacing:-0.01em">Монтаж світильників</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#c9c1b7">Точкові світильники, люстри, трекові системи та світлові лінії.</p></div>
+    </div>
+  </section>
+
+  <section id="prices" data-screen-label="Ціни" style="background:#f2eee8">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 64px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <h2 style="margin:0;font-size:clamp(32px,4.4vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em">Ціни</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#5d564f;max-width:24em">Вартість залежить від площі, фактури та кількості кутів. Точну суму фіксуємо після безкоштовного заміру.</p>
+        <a href="#request" style="align-self:flex-start;background:#3f63c9;color:#fff;padding:14px 24px;border-radius:999px;font-weight:500;font-size:16px;min-height:48px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0" style-hover="background:#2f4ea6;color:#fff">Розрахувати мою стелю</a>
+      </div>
+      <div style="display:flex;flex-direction:column;font-size:clamp(16px,1.6vw,19px)">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid #ddd5cb;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#7d756c"><span>Тип стелі</span><span>Вартість</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">Матова</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">Глянцева</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">Сатинова</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">Двоярусна</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">З фотодруком</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">З підсвіткою</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">«Ширяюча»</span><span>від [ціна] грн/м²</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;padding:20px 0;border-bottom:1px solid #ddd5cb"><span style="font-weight:500">Монтаж світильника</span><span>від [ціна] грн/шт</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" data-screen-label="Як ми працюємо" style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(16px,4vw,40px)">
+    <h2 style="margin:0 0 48px;font-size:clamp(32px,4.4vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em">Як ми працюємо</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:32px 24px">
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #1f1c19;padding-top:20px"><span style="font-size:44px;font-weight:300;color:#3f63c9;line-height:1">1</span><h3 style="margin:0;font-size:21px;font-weight:600">Заявка</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#5d564f">Залишаєте заявку на сайті або телефонуєте. Узгоджуємо зручний час заміру.</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #1f1c19;padding-top:20px"><span style="font-size:44px;font-weight:300;color:#3f63c9;line-height:1">2</span><h3 style="margin:0;font-size:21px;font-weight:600">Замір</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#5d564f">Майстер безкоштовно приїжджає, робить заміри, показує зразки й називає точну ціну.</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #1f1c19;padding-top:20px"><span style="font-size:44px;font-weight:300;color:#3f63c9;line-height:1">3</span><h3 style="margin:0;font-size:21px;font-weight:600">Монтаж</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#5d564f">Встановлюємо стелю за один день, акуратно і без пилу. Прибираємо після себе.</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #1f1c19;padding-top:20px"><span style="font-size:44px;font-weight:300;color:#3f63c9;line-height:1">4</span><h3 style="margin:0;font-size:21px;font-weight:600">Гарантія</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#5d564f">Видаємо гарантійний талон на полотно та монтаж строком [строк гарантії].</p></div>
+    </div>
+  </section>
+
+  <section id="portfolio" data-screen-label="Портфоліо" style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(16px,4vw,40px);border-top:1px solid #ebe6df">
+    <h2 style="margin:0 0 48px;font-size:clamp(32px,4.4vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em">Портфоліо</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px">
+      <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:5px 9px;border-radius:6px">Фото роботи</span></div>
+      <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:5px 9px;border-radius:6px">Фото роботи</span></div>
+      <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:5px 9px;border-radius:6px">Фото роботи</span></div>
+      <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:5px 9px;border-radius:6px">Фото роботи</span></div>
+      <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:5px 9px;border-radius:6px">Фото роботи</span></div>
+      <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(135deg,#e9e5df 0 12px,#efebe6 12px 24px);display:flex;align-items:flex-end;padding:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d756c;background:#faf8f5;padding:5px 9px;border-radius:6px">Фото роботи</span></div>
+    </div>
+  </section>
+
+  <section id="why" data-screen-label="Чому ми" style="background:#1f1c19;color:#faf8f5">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(16px,4vw,40px)">
+      <h2 style="margin:0 0 48px;font-size:clamp(32px,4.4vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em">Чому ми</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:#3a3530;border:1px solid #3a3530;border-radius:16px;overflow:hidden">
+        <div style="background:#1f1c19;padding:32px 26px;display:flex;flex-direction:column;gap:14px"><span style="width:10px;height:10px;background:#f2d41c;border-radius:50%;display:block"></span><h3 style="margin:0;font-size:21px;font-weight:600">Монтаж за 1 день</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#c9c1b7">Стандартну кімнату встановлюємо за один візит, без переривання ремонту.</p></div>
+        <div style="background:#1f1c19;padding:32px 26px;display:flex;flex-direction:column;gap:14px"><span style="width:10px;height:10px;background:#f2d41c;border-radius:50%;display:block"></span><h3 style="margin:0;font-size:21px;font-weight:600">Ціна фіксується в договорі</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#c9c1b7">Сума після заміру не змінюється під час монтажу.</p></div>
+        <div style="background:#1f1c19;padding:32px 26px;display:flex;flex-direction:column;gap:14px"><span style="width:10px;height:10px;background:#f2d41c;border-radius:50%;display:block"></span><h3 style="margin:0;font-size:21px;font-weight:600">Чистий монтаж</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#c9c1b7">Захищаємо меблі й підлогу, прибираємо після завершення робіт.</p></div>
+        <div style="background:#1f1c19;padding:32px 26px;display:flex;flex-direction:column;gap:14px"><span style="width:10px;height:10px;background:#f2d41c;border-radius:50%;display:block"></span><h3 style="margin:0;font-size:21px;font-weight:600">Офіційна гарантія</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#c9c1b7">Гарантія на полотно і роботу — [строк гарантії], з письмовим талоном.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="request" data-screen-label="Форма заявки" style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:40px 64px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <h2 style="margin:0;font-size:clamp(32px,4.4vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em;text-wrap:balance">Запишіться на безкоштовний замір</h2>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#5d564f;max-width:26em">Залиште контакти — ми передзвонимо, відповімо на питання й узгодимо час приїзду майстра.</p>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #ebe6df;border-radius:20px;padding:clamp(20px,3vw,36px)">
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#5d564f">Ім'я
+          <input required="required" name="name" placeholder="Як до вас звертатися" style="height:54px;border:1px solid #ddd5cb;border-radius:12px;padding:0 16px;font-size:17px;background:#faf8f5;color:#1f1c19;outline:none" style-focus="border-color:#3f63c9;background:#fff"></input>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#5d564f">Телефон
+          <input required="required" type="tel" name="phone" placeholder="+380" style="height:54px;border:1px solid #ddd5cb;border-radius:12px;padding:0 16px;font-size:17px;background:#faf8f5;color:#1f1c19;outline:none" style-focus="border-color:#3f63c9;background:#fff"></input>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#5d564f">Коментар
+          <textarea name="comment" rows="4" placeholder="Площа, кількість кімнат, побажання" style="border:1px solid #ddd5cb;border-radius:12px;padding:14px 16px;font-size:17px;background:#faf8f5;color:#1f1c19;outline:none;resize:vertical" style-focus="border-color:#3f63c9;background:#fff"></textarea>
+        </label>
+        <button type="submit" style="height:58px;border:0;border-radius:999px;background:#3f63c9;color:#fff;font-size:17px;font-weight:500;cursor:pointer;margin-top:4px" style-hover="background:#2f4ea6">Надіслати заявку</button>
+        <p style="margin:0;font-size:13px;color:#7d756c;line-height:1.5">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.</p>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:14px;background:#fff;border:1px solid #ebe6df;border-radius:20px;padding:clamp(24px,3vw,40px)">
+        <span style="width:14px;height:14px;background:#3f63c9;border-radius:50%;display:block"></span>
+        <h3 style="margin:0;font-size:26px;font-weight:600">Дякуємо, заявку отримано</h3>
+        <p style="margin:0;font-size:16px;line-height:1.55;color:#5d564f">Ми зателефонуємо вам найближчим часом.</p>
+        <button onClick="{{ reset }}" style="align-self:flex-start;border:1px solid #d6cfc6;background:transparent;border-radius:999px;padding:12px 20px;font-size:15px;cursor:pointer;min-height:44px">Надіслати ще одну</button>
+      </div>
+    </sc-if>
+  </section>
+</main>
+
+<footer id="contacts" data-screen-label="Підвал" style="background:#f2eee8;border-top:1px solid #e3ddd5">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(16px,4vw,40px) 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:36px 40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="position:relative;width:84px;height:54px;display:block;flex:none" aria-label="PRO CEILING"><span style="position:absolute;left:30px;top:0;width:48px;height:46px;border:2.5px solid #f2d41c;display:block"></span><span style="position:absolute;left:22px;top:7px;width:48px;height:46px;border:2.5px solid #4b6fd1;background:#f2eee8;display:block"></span><span style="position:absolute;left:0;top:13px;display:flex;flex-direction:column;line-height:0.95;color:#1f1c19;font-weight:500"><span style="font-size:23px;letter-spacing:0.02em;background:#f2eee8;padding-right:2px">PRO</span><span style="font-size:11.5px;letter-spacing:0.04em;background:#f2eee8;padding-right:2px">CEILING</span></span></div>
+      <p style="margin:0;font-size:15px;line-height:1.55;color:#5d564f">Монтаж натяжних стель у [місто].</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:16px">
+      <span style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#7d756c">Контакти</span>
+      <a href="tel:" style="font-weight:600;font-size:19px">[телефон]</a>
+      <a href="mailto:">[email]</a>
+      <span style="color:#5d564f">[графік роботи]</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:16px">
+      <span style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#7d756c">Месенджери та соцмережі</span>
+      <a href="#">Viber · [номер]</a>
+      <a href="#">Telegram · [@нікнейм]</a>
+      <a href="#">Instagram · [@акаунт]</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:16px">
+      <span style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#7d756c">Адреса</span>
+      <span>[місто], [вулиця, будинок]</span>
+      <a href="#request" style="color:#3f63c9;font-weight:500">Безкоштовний замір →</a>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:20px clamp(16px,4vw,40px) 32px;border-top:1px solid #e3ddd5;font-size:13px;color:#7d756c;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px">
+    <span>© PRO CEILING, [рік]</span>
+    <span>Натяжні стелі · [місто]</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

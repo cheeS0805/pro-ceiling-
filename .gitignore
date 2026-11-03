@@ -1,0 +1,6 @@
+# Службові файли Windows
+Thumbs.db
+desktop.ini
+
+# Службові файли macOS
+.DS_Store
