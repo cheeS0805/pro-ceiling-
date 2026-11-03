@@ -1,7 +1,13 @@
 @use 'tokens' as *;
 @use 'mixins' as *;
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  // Місце під «липку» шапку при переході за якорем (#prices, #calc…) — інакше заголовок ховається під нею.
+  // Знайдено перевіркою в справжньому Chrome (крок 9).
+  scroll-padding-top: $header-h-desktop;
+  @include mobile { scroll-padding-top: $header-h-mobile; }
+}
 
 body {
   margin: 0;

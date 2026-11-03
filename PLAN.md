@@ -62,4 +62,5 @@ Claude Code in Action…»).
 - [x] 6. Hook PostToolUse: `.claude/settings.json` → `.claude/hooks/after-edit.mjs` (збірка + verify:quick, exit 2 при ❌)
 - [x] 7. Hook PreToolUse: `.claude/hooks/before-edit.mjs` — заборона чужих номерів, правок `contacts.json` і згенерованих файлів
 - [x] 8. Субагент `site-reviewer` (`.claude/agents/`) + правки за його звітом: SEO, тексти, доступність, мобільний вигляд
-- [ ] 9. Claude in Chrome (MCP)
+- [x] 9. Claude in Chrome (MCP): перевірка в справжньому Chrome — 375px, Tab, консоль, калькулятор; знайдено й виправлено баг із заголовками під шапкою; GIF калькулятора
+- [ ] 10. Плагін
